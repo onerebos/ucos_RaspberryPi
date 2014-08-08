@@ -1,5 +1,6 @@
 
 #include "interrupts.h"
+#include "uart.h"
 #include "regs.h"
 
 INTERRUPT_VECTOR g_VectorTable[BCM2835_INTC_TOTAL_IRQ];
@@ -38,12 +39,36 @@ void OS_CPU_IRQ_ISR_Handler() {
 	 *		
 	 *	This will be fixed later!
 	 **/
+#if OS_CRITICAL_METHOD == 3                      /* Allocate storage for CPU status register           */
+    OS_CPU_SR  cpu_sr;
+#endif    
+ 
+    OS_ENTER_CRITICAL();
+    OSIntEnter();
+    OS_ENTER_CRITICAL();
 
 	register unsigned long ulMaskedStatus;
 	register unsigned long irqNumber;
 	register unsigned long tmp;
+    //uart_send('.');
 
-	ulMaskedStatus = intcRegs->IRQBasic;
+    if ( intcRegs->Pending1 & (1<<29) )
+    {
+        //uart_send('#');
+        irqNumber = 29;
+    	if(g_VectorTable[irqNumber].pfnHandler) 
+        {
+            //g_VectorTable[irqNumber].pfnHandler = aux_uart_isr;
+            //DisableInterrupt(29);
+            //uart_string("!");
+		    (g_VectorTable[irqNumber].pfnHandler)(irqNumber, g_VectorTable[irqNumber].pParam);
+            //aux_uart_isr(0,0);
+        }
+        OSIntExit();
+        return;
+    }
+
+    ulMaskedStatus = intcRegs->IRQBasic;
 	tmp = ulMaskedStatus & 0x00000300;			// Check if anything pending in pr1/pr2.   
 
 	if(ulMaskedStatus & ~0xFFFFF300) {			// Note how we mask out the GPU interrupt Aliases.
@@ -70,10 +95,14 @@ void OS_CPU_IRQ_ISR_Handler() {
 		}				
 	}
 
+    uart_send('?');
+    OSIntExit();
 	return;
 
 emit_interrupt:
 
+    //hexstring( GET_SP() ); 
+    //hexstring( GET_PC() );
 	tmp = ulMaskedStatus - 1;
 	ulMaskedStatus = ulMaskedStatus ^ tmp;
 
@@ -88,6 +117,8 @@ emit_interrupt:
 	if(g_VectorTable[irqNumber-lz].pfnHandler) {
 		g_VectorTable[irqNumber-lz].pfnHandler(irqNumber, g_VectorTable[irqNumber].pParam);
 	}
+
+    OSIntExit();
 }
 
 
@@ -96,7 +127,8 @@ static void stubHandler(int nIRQ, void *pParam) {
 	 *	Actually if we get here, we should probably disable the IRQ,
 	 *	otherwise we could lock up this system, as there is nothing to 
 	 *	ackknowledge the interrupt.
-	 **/   
+	 **/  
+    uart_string("StubHandle");
 }
 
 int InitInterruptController() {
@@ -110,10 +142,11 @@ int InitInterruptController() {
 
 
 
-int RegisterInterrupt(int nIRQ, FN_INTERRUPT_HANDLER pfnHandler, void *pParam) {
+int RegisterInterrupt(int nIRQ, int(*pfnHandler)(int, void*), void *pParam) {
 
 	irqDisable();
 	{
+        uart_string("ISR Registed\n");
 		g_VectorTable[nIRQ].pfnHandler = pfnHandler;
 		g_VectorTable[nIRQ].pParam		= pParam;
 	}
@@ -130,6 +163,10 @@ int EnableInterrupt(int nIRQ) {
 	if(nIRQ >= 64 && nIRQ <= 72) {	// Basic IRQ enables
 		intcRegs->EnableBasic = 1 << (nIRQ - 64);
 	}
+    if(nIRQ >=0 && nIRQ <= 31 ) 
+    {
+        intcRegs->Enable1 = (1 << nIRQ);
+    }
 
 	ulTMP = intcRegs->EnableBasic;
 
@@ -142,6 +179,11 @@ int DisableInterrupt(int nIRQ) {
 	if(nIRQ >= 64 && nIRQ <= 72) {
 		intcRegs->DisableBasic = 1 << (nIRQ - 64);
 	}
+    if(nIRQ >=0 && nIRQ <= 31 ) 
+    {
+        intcRegs->Disable1 = (1 << nIRQ);
+    }
+
 
 	// I'm currently only supporting the basic IRQs.
 

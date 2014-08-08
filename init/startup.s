@@ -2,6 +2,15 @@
 .extern __bss_end
 .extern OS_CPU_IRQ_ISR//to be modified
 .extern DisableInterrupts//to be modified
+
+//
+.extern undefined_instruction
+.extern swi 
+.extern prefetch_abort
+.extern data_abort
+.extern unused 
+.extern fiq
+//
 .extern main
 	.section .init
 	.globl _start
@@ -24,11 +33,11 @@ _start:
 	;@ Here we create an exception address table! This means that reset/hang/irq can be absolute addresses
 reset_handler:      .word reset
 undefined_handler:  .word undefined_instruction
-swi_handler:        .word swi//to be modified
+swi_handler:        .word swi;@to be modified
 prefetch_handler:   .word prefetch_abort
 data_handler:       .word data_abort
 unused_handler:     .word unused
-irq_handler:        .word OS_CPU_IRQ_ISR//irqHandler to be modified
+irq_handler:        .word OS_CPU_IRQ_ISR;@irqHandler to be modified
 fiq_handler:        .word fiq
 
 reset:
@@ -53,9 +62,9 @@ reset:
     mov sp,#0x8000
 
     ;@ (PSR_FIQ_MODE|PSR_FIQ_DIS|PSR_IRQ_DIS)
-//    mov r0,#0xD1
-//   msr cpsr_c,r0
-//  mov sp,#0x4000
+;@    mov r0,#0xD1
+;@   msr cpsr_c,r0
+;  mov sp,#0x4000
 
     ;@ (PSR_SYS_MODE|PSR_FIQ_DIS|PSR_IRQ_DIS)
     mov r0,#0xDF
@@ -73,30 +82,30 @@ zero_loop:
 	strlt	r2,[r0], #4
 	blt		zero_loop
 
-	bl 		DisableInterrupts//to be modified
+	bl 		DisableInterrupts;@to be modified
 	
 	
 	;@ 	mov	sp,#0x1000000
 	b main									;@ We're ready?? Lets start main execution!
 	.section .text
 
-undefined_instruction:
-	b undefined_instruction
+;@ undefined_instruction:
+;@	b undefined_instruction
 
-swi:
-	b swi
+;@swi:
+;@	b swi
 
-prefetch_abort:
-	b prefetch_abort
+;@prefetch_abort:
+;@	b prefetch_abort
 
-data_abort:
-	b data_abort
+;@data_abort:
+;@	b data_abort
 
-unused:
-	b unused
+;@unused:
+;@	b unused
 
-fiq:
-	b fiq
+;@fiq:
+;@	b fiq
 	
 hang:
 	b hang
@@ -110,7 +119,14 @@ PUT32:
 GET32:
     ldr r0,[r0]
     bx lr
-
+.globl GET_SP
+GET_SP:
+    mov r0,sp
+    bx lr
+.globl GET_PC
+GET_PC:
+    mov r0,pc
+    bx lr
 .globl dummy
 dummy:
     bx lr

@@ -1,13 +1,14 @@
 #include "regs.h"
 #include "interrupts.h"
 #include "ucos/includes.h"
+#include "uart.h"
 
 extern INTERRUPT_VECTOR g_VectorTable[BCM2835_INTC_TOTAL_IRQ];
 
 static void tickISR()
 {
 	OSTimeTick();
-
+    //uart_string(".");
 	timerRegs->CLI = 0;
 }
 

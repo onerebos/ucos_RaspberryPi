@@ -33,7 +33,7 @@ typedef struct {
 } INTERRUPT_VECTOR;
 
 int InitInterruptController	();
-int RegisterInterrupt		(int nIRQ, FN_INTERRUPT_HANDLER pfnHandler, void *pParam);
+int RegisterInterrupt		(int nIRQ, int(*pfnHandler)(int, void*) , void *pParam);
 int EnableInterrupt			(int nIRQ);
 int DisableInterrupt		(int nIRQ);
 int EnableInterrupts		();
