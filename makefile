@@ -5,7 +5,8 @@ ARMGNU ?= arm-none-eabi
 INCLUDEPATH ?= ./h 
 INCLUDEPATH_UCOS ?= ./h/ucos/
 
-COPS = -Wall -O2 -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -I $(INCLUDEPATH) -I $(INCLUDEPATH_UCOS)
+;COPS = -Wall -O2 -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -I $(INCLUDEPATH) -I $(INCLUDEPATH_UCOS)
+COPS = -Wall -nostdlib -nostartfiles -ffreestanding -mcpu=arm1176jzf-s -I $(INCLUDEPATH) -I $(INCLUDEPATH_UCOS)
 
 gcc : kernel.img
 
@@ -18,6 +19,9 @@ OBJS += build/interrupts.o
 OBJS += build/fifo.o 
 OBJS += build/showstop.o
 OBJS += build/cpu.o
+OBJS += build/xmodem.o 
+OBJS += build/crc.o
+OBJS += build/gpio.o
 
 OBJS += build/OS_Cpu_a.o
 OBJS += build/OS_Cpu_c.o

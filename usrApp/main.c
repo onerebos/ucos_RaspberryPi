@@ -1,3 +1,4 @@
+#include "gpio.h"
 #include "uart.h"
 #include "regs.h"
 #include "timer.h"
@@ -12,6 +13,7 @@ extern void userApp2(void *);
 void main()
 {
 
+    initJTAG( );
 	InitInterruptController();
 
 	//uart_init();

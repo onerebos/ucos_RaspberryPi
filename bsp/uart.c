@@ -71,6 +71,13 @@ void hexstrings ( unsigned int d )
     uart_send(0x20);
 }
 
+void hexstring_showstop ( unsigned int d )
+{
+    hexstrings(d);
+    uart_send(0x0D);
+    uart_send(0x0A);
+}
+
 void hexstring ( unsigned int d )
 {
     return;
@@ -207,7 +214,20 @@ void uart_init ( void )
 }
 
 
-
+void uart_string_showstop (char* s)
+{
+//    return;
+    // cpu Version
+    
+	while(*s!=0)
+    {
+    	uart_send((unsigned int)*s);
+    	s++;
+    }
+	uart_send(0x0D);
+	uart_send(0x0A);
+    
+}
 void uart_string (char* s)
 {
     return;

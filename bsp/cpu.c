@@ -12,43 +12,43 @@ fiq
 */
 void unused ( void )
 {
-    uart_string("unused");
-
+    uart_string_showstop("unused");
+    showstop();
     while(1);
 }
 
 void fiq( void )
 {
-    uart_string( "fiq" );
-
+    uart_string_showstop( "fiq" );
+    showstop();
     while(1);
 }
 
 void undefined_instruction( void )
 {
-    uart_string("undefined_instruction");
-    
+    uart_string_showstop("undefined_instruction");
+    showstop();
     while(1);
 }
 
 void swi( void )
 {
-    uart_string( "swi" );
-
+    uart_string_showstop( "swi" );
+    showstop();
     while(1);
 }
 
 void prefetch_abort( void )
 {
-    uart_string( "prefetch_abort" );
-
+    uart_string_showstop( "prefetch_abort" );
+    showstop();
     while(1);
 }
 
 void data_abort( void )
 {
-    uart_string(" data_abort " );
-
+    uart_string_showstop(" data_abort " );
+    showstop();
     while(1);
 }
 

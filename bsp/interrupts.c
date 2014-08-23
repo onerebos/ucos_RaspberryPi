@@ -1,4 +1,3 @@
-
 #include "interrupts.h"
 #include "uart.h"
 #include "regs.h"
@@ -47,11 +46,13 @@ void OS_CPU_IRQ_ISR_Handler() {
     OSIntEnter();
     OS_ENTER_CRITICAL();
 
-	register unsigned long ulMaskedStatus;
+	static volatile unsigned long ulMaskedStatus;
 	register unsigned long irqNumber;
-	register unsigned long tmp;
+	static volatile unsigned long tmp;
+    register INT32U IntrPendingBits;
     //uart_send('.');
 
+    /*
     if ( intcRegs->Pending1 & (1<<29) )
     {
         //uart_send('#');
@@ -67,35 +68,54 @@ void OS_CPU_IRQ_ISR_Handler() {
         OSIntExit();
         return;
     }
-
+*/
     ulMaskedStatus = intcRegs->IRQBasic;
 	tmp = ulMaskedStatus & 0x00000300;			// Check if anything pending in pr1/pr2.   
 
 	if(ulMaskedStatus & ~0xFFFFF300) {			// Note how we mask out the GPU interrupt Aliases.
-		irqNumber = 64 + 31;						// Shifting the basic ARM IRQs to be IRQ# 64 +
+	    IntrPendingBits = ulMaskedStatus;       // Make emit_interrupt has the same logic	
+        irqNumber = 64 + 31;						// Shifting the basic ARM IRQs to be IRQ# 64 +
 		goto emit_interrupt;
 	}
 
 	if(tmp & 0x100) {
-		ulMaskedStatus = intcRegs->Pending1;
+		IntrPendingBits = intcRegs->Pending1;
 		irqNumber = 0 + 31;
 		// Clear the interrupts also available in basic IRQ pending reg.
 		//ulMaskedStatus &= ~((1 << 7) | (1 << 9) | (1 << 10) | (1 << 18) | (1 << 19));
-		if(ulMaskedStatus) {
+		if( IntrPendingBits ) {
 			goto emit_interrupt;
 		}
 	}
 
 	if(tmp & 0x200) {
-		ulMaskedStatus + intcRegs->Pending2;
+		IntrPendingBits = intcRegs->Pending2;
 		irqNumber = 32 + 31;
 		// Don't clear the interrupts in the basic pending, simply allow them to processed here!
-		if(ulMaskedStatus) {
+		if( IntrPendingBits ) {
 			goto emit_interrupt;
 		}				
 	}
 
+    if ( ~0xFFA00000 & ulMaskedStatus )
+    {
+        uartTransmit( 0, "GPU IRQ\n\r", sizeof("GPU IRQ\n\r"), 0 );
+    }
+    else if ( 0xFFA00000 & ulMaskedStatus )
+    {
+        uartTransmit( 0 , "Unused IRQ\n\r", sizeof("Unused IRQ\n\r" ) , 0 );
+    }
+    else
+    {
+        uartTransmit( 0 , "Empty IRQ\n\r", sizeof("Empty IRQ\n\r"), 0 );
+    }
+/*
+    DisableInterrupts();// For uart print
+    hexstring_showstop( ulMaskedStatus );
+    hexstring_showstop( tmp ); 
+    showstop();
     uart_send('?');
+*/ 
     OSIntExit();
 	return;
 
@@ -103,21 +123,28 @@ emit_interrupt:
 
     //hexstring( GET_SP() ); 
     //hexstring( GET_PC() );
-	tmp = ulMaskedStatus - 1;
-	ulMaskedStatus = ulMaskedStatus ^ tmp;
+	tmp = IntrPendingBits- 1;
+	IntrPendingBits = IntrPendingBits ^ tmp;
 
-	unsigned long lz = clz(ulMaskedStatus);
+	unsigned long lz = clz(IntrPendingBits);
 
 	//irqNumber = irqNumber - 
 
 	//__asm volatile("clz	r7,r5");				// r5 is the ulMaskedStatus register. Leaving result in r6!
 	//__asm volatile("sub r6,r7");
 
-
+/*
 	if(g_VectorTable[irqNumber-lz].pfnHandler) {
 		g_VectorTable[irqNumber-lz].pfnHandler(irqNumber, g_VectorTable[irqNumber].pParam);
 	}
-
+*/
+    if(g_VectorTable[irqNumber-lz].pfnHandler) {
+		g_VectorTable[irqNumber-lz].pfnHandler(irqNumber, g_VectorTable[irqNumber].pParam);
+	}
+    else
+    {
+        uartTransmit( 0 , "Undefined IRQ Func" , sizeof("Undefined IRQ Func"), 0 );
+    }
     OSIntExit();
 }
 

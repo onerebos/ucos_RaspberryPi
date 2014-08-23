@@ -13,8 +13,10 @@ void userApp2(void * args)
     //INT8U buf[1024];
     //fifoCreate( &fifo, TMP_BUFFER, 1023 );
     
-    INT8U sentence[] = "in userApp2";
-    
+    INT8U sentence[] = "App2 Started\n\r";
+
+    uartTransmit( 0, sentence, sizeof(sentence) , 0 );
+
 	while(1)
 	{
         /*
@@ -40,16 +42,17 @@ void userApp2(void * args)
         
         //hexstring( rc );
         //if( rc > 0 ) uart_send(buf[0]);
-        while( 100 == uartRecv(0, buf, 100, 0) )
+        while( 1 == uartRecv(0, buf, 1, 0) )
         {
-            uartTransmit( 0, buf, 100, 0 );
+            //uartTransmit( 0, buf, 1, 0 );
         }
+
         //PUT32( AUX_MU_IO_REG, '*' );
 
         //PUT32( AUX_MU_IER_REG , 7 );
         //uart_send('.');
         //PUT32( AUX_MU_IER_REG, 3 );
-		//OSTimeDly(5);
+		//OSTimeDly(50);
         //uartTransmit( 0, "Hello World!\n\r", sizeof("hello world!\n\r"), 0 );
 	}
 }

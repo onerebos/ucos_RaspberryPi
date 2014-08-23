@@ -34,12 +34,21 @@
 
  */
 
-#include <string.h>
+//#include <string.h>
 
-#include <lib_serial.h>
-#include <lib_crc.h>
+//#include <lib_serial.h>
+//#include <lib_crc.h>
 
-#include <xmodem.h>
+//#include <xmodem.h>
+#include "uart.h"
+
+typedef INT8S int8_t; 
+typedef INT8U uint8_t;
+typedef INT16S int16_t;
+typedef INT16U uint16_t; 
+
+#define _outbyte(a) uart_send(a)
+#define _inbyte(a)  uart_recv()
 
 #define SOH  0x01
 #define STX  0x02

@@ -37,7 +37,9 @@ void uart_string(char *);
 void uart_string_dma(char* s);
 
 
-
+// used in showstop only
+void uart_string_showstop (char* s);
+void hexstring_showstop ( unsigned int d );
 
 typedef struct
 {
