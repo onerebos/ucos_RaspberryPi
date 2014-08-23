@@ -5,6 +5,7 @@
 #include "includes.h"
 #include "regs.h"
 #include "fifo.h"
+#include "device.h"
 
 //AUX_MU_IIR_REG
 #define     ENABLE_RX_INTR      (1<<1)
@@ -36,6 +37,17 @@ void uart_string(char *);
 
 void uart_string_dma(char* s);
 
+//
+INT32U uart_open( INT32U param, void* pParam );
+INT32U uart_close( void );
+INT32U uart_read ( INT8U * recBuf, 
+                   INT32U num,
+                   INT32U param,
+                   void* pParam );
+INT32U uart_write (  INT8U * transBuf, 
+                     INT32U transNum, 
+                     INT32U param,
+                     void* pParam);
 
 // used in showstop only
 void uart_string_showstop (char* s);

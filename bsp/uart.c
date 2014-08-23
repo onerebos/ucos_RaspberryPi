@@ -155,7 +155,13 @@ void uart_init ( void )
     PUT32(AUX_MU_CNTL_REG,0);
     PUT32(AUX_MU_LCR_REG,3);
     PUT32(AUX_MU_MCR_REG,0);
+    /////////////////////////////////////////////////////////
+    // Here, when initializing, we can only enable recv intr.
+    // As for transmit intr, when enable, it means that tx fifo is empty
+    // and ready to receive data. We will enable when we plan to transmit]
+    // data ( usually more than one byte.
     PUT32(AUX_MU_IER_REG,0|1);//ENABLE_RX_INTR);
+    /////////////////////////////////////////////////////////
     PUT32(AUX_MU_IIR_REG,0xC6);
     PUT32(AUX_MU_BAUD_REG,270);
     ra=GET32(GPFSEL1);
@@ -173,10 +179,10 @@ void uart_init ( void )
 
     uart_string("uart intr ENABLED\n");
     //FN_INTERRUPT_HANDLER fn = &aux_uart_isr;
-    RegisterInterrupt( 29, aux_uart_isr ,0 );
+    RegisterInterrupt( AUX_UART_INTR_NUM , aux_uart_isr ,0 );
 
 	//g_VectorTable[29].pfnHandler = aux_uart_isr ;
-    EnableInterrupt(29);
+    EnableInterrupt( AUX_UART_INTR_NUM );
 
     INT8U uartErr = 0;
 
@@ -211,6 +217,23 @@ void uart_init ( void )
     fifoCreate( &uartTransFifo, pUartTransFifoMem, UART_TRANS_FIFO_SIZE );
 
     uartTransIntrFlag = UART_TRANS_INTR_END;
+
+    PUT32( AUX_ENABLES, 0 );// Disable uart function, until it is opened.
+
+    // Register dev in the system
+    static dev_t uart_dev;
+
+    uart_dev.open = uart_open;
+    uart_dev.close = uart_close;
+    uart_dev.read = uart_read;
+    uart_dev.write = uart_write;
+    uart_dev.dev_name = "uart1";
+    uart_dev.isOpen = FALSE;
+
+    if( DEV_SUCCESS != dev_reg( uart_dev ) )
+    {
+        showstop();
+    }
 }
 
 
@@ -304,13 +327,40 @@ void uart_string_dma(char* s)
 }
 
 
-INT32U uart_open( INT32U uartNum )
+INT32U uart_open( INT32U param, void* pParam )
 {
+    //RegisterInterrupt( AUX_UART_INTR_NUM , aux_uart_isr ,0 );
+    EnableInterrupt( AUX_UART_INTR_NUM );
+    PUT32( AUX_ENABLES, 1 );
+    fifoEmpty( &uartRecvFifo );
+    fifoEmpty( &uartTransFifo );
+
+    return DEV_SUCCESS;
+}
+
+INT32U uart_close( void )
+{
+    // Disable Interrupt
+    DisableInterrupt( AUX_UART_INTR_NUM );
+    PUT32( AUX_ENABLES, 0 );
+    fifoEmpty( &uartRecvFifo );
+    fifoEmpty( &uartTransFifo );
+
+    return DEV_SUCCESS;
 
 }
 
-INT32U uart_close( INT32U uartNum )
-{}
+INT32U uart_read ( INT8U * recBuf, 
+                   INT32U num,
+                   INT32U param,
+                   void* pParam )
+{
+    INT32U recNum;
+    DisableInterrupt(29);
+    recNum = fifoGet(&uartRecvFifo, recBuf, num );
+    EnableInterrupt(29);
+    return recNum;
+}
 
 INT32U uartRecv( INT32U uartDev, 
                  INT8U * recBuf, 
@@ -324,6 +374,50 @@ INT32U uartRecv( INT32U uartDev,
     return recNum;
 }
 
+INT32U uart_write (  INT8U * transBuf, 
+                     INT32U transNum, 
+                     INT32U param,
+                     void* pParam)
+{
+    INT32U rc = 0;
+    INT32U RTC = 0;
+    INT8U rByte = 0;
+    
+    if( uartTransIntrFlag == UART_TRANS_INTR_CONTINUE )
+    {
+        rc = fifoPut( &uartTransFifo, transBuf, transNum );
+       
+        RTC = rc;
+    }
+    else if( uartTransIntrFlag == UART_TRANS_INTR_END )
+    {
+        //uart_string("FIFO Put");
+        rc = fifoPut( &uartTransFifo, transBuf, transNum );
+        
+        if( 0 == rc )
+        {
+            RTC = 0;
+        }
+        else
+        {
+            uartTransIntrFlag = UART_TRANS_INTR_CONTINUE;
+            fifoGet( &uartTransFifo, &rByte, 1 );
+            while(1)
+            {
+                if(GET32(AUX_MU_LSR_REG)&0x20) break;
+            }
+            PUT32( AUX_MU_IO_REG, (INT32U) 0xff&rByte );
+            PUT32( AUX_MU_IER_REG, 3 );// Enable transmit Interrupt
+            RTC = transNum;
+        }
+    }
+    else
+    {
+        showstop();
+    }
+
+    return RTC;
+}
 INT32U uartTransmit( INT32U uartDev, 
                      INT8U * transBuf, 
                      INT32U transNum, 
