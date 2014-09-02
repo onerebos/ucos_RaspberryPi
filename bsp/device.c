@@ -48,7 +48,7 @@ INT32U dev_reg ( dev_t dev )           // Register DEV
  
     OS_ENTER_CRITICAL();
 
-    dev_t* pFreeDevSlot = 0;
+    dev_t* pFreeDevSlot = NULL;
     INT32U i;
 
     for( i = 0; i < MAX_DEV ; i ++ )
@@ -63,7 +63,7 @@ INT32U dev_reg ( dev_t dev )           // Register DEV
     if( NULL == pFreeDevSlot )
     {
         OS_EXIT_CRITICAL();
-        return DEV_REG_FAIL;
+        return DEV_FAIL;
     }
 
     if( NULL != dev.dev_name  &&
@@ -73,11 +73,12 @@ INT32U dev_reg ( dev_t dev )           // Register DEV
         NULL != dev.write )
     {
         *pFreeDevSlot = dev;
+        OS_EXIT_CRITICAL();
+        return DEV_SUCCESS;
     }
 
     OS_EXIT_CRITICAL();
-
-    return DEV_SUCCESS;
+    return DEV_FAIL;
 }
 
 INT32U dev_read ( INT32U dev, 
@@ -178,4 +179,3 @@ INT32U dev_close( INT32U dev )
     return DEV_SUCCESS;
 
 }
-

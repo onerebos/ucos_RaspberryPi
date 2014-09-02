@@ -19,7 +19,7 @@ AUX_MU_MCR_REG	./h/regs.h	16;"	d
 AUX_MU_MSR_REG	./h/regs.h	18;"	d
 AUX_MU_SCRATCH	./h/regs.h	19;"	d
 AUX_MU_STAT_REG	./h/regs.h	21;"	d
-AUX_UART_INTR_NUM	./h/uart.h	13;"	d
+AUX_UART_INTR_NUM	./h/uart.h	14;"	d
 BASE_INTC	./h/regs.h	25;"	d
 BCM2835_INTC_TOTAL_IRQ	./h/interrupts.h	5;"	d
 BCM2835_IRQ_ID_AUX	./h/interrupts.h	7;"	d
@@ -57,11 +57,19 @@ DEST_DREQ	./h/dma.h	30;"	d
 DEST_IGNORE	./h/dma.h	29;"	d
 DEST_INC	./h/dma.h	32;"	d
 DEST_WIDTH	./h/dma.h	31;"	d
+DEV_FAIL	./h/device.h	17;"	d
+DEV_INVALID	./h/device.h	13;"	d
+DEV_NOT_EXIST	./h/device.h	12;"	d
+DEV_NOT_OPENED	./h/device.h	14;"	d
+DEV_OPEN_FAIL	./h/device.h	11;"	d
+DEV_REG_FAIL	./h/device.h	8;"	d
+DEV_REG_SUCCESS	./h/device.h	9;"	d
+DEV_SUCCESS	./h/device.h	16;"	d
 DIV	./h/regs.h	/^	unsigned long DIV;$/;"	m	struct:_BCM2835_TIMER_REGS	access:public
 DLY_1S	./bsp/xmodem.c	61;"	d	file:
 DMA15_BASE	./h/dma.h	8;"	d
 DMA_BASE	./h/dma.h	6;"	d
-DMA_CB_ADDR	./bsp/uart.c	258;"	d	file:
+DMA_CB_ADDR	./bsp/uart.c	281;"	d	file:
 DMA_CB_ADDR_OFFSET	./h/dma.h	45;"	d
 DMA_CHANL_DIST	./h/dma.h	7;"	d
 DMA_CHANNEL_EN_OFFSET	./h/dma.h	9;"	d
@@ -69,8 +77,8 @@ DMA_CS_ACTIVE	./h/dma.h	42;"	d
 DMA_CS_END	./h/dma.h	41;"	d
 DMA_CS_INT	./h/dma.h	40;"	d
 DMA_CS_OFFSET	./h/dma.h	38;"	d
-DMA_t	./h/dma.h	/^} DMA_t;$/;"	t	typeref:struct:__anon14
-DesAddr	./h/dma.h	/^INT32U  DesAddr;$/;"	m	struct:__anon14	access:public
+DMA_t	./h/dma.h	/^} DMA_t;$/;"	t	typeref:struct:__anon15
+DesAddr	./h/dma.h	/^INT32U  DesAddr;$/;"	m	struct:__anon15	access:public
 Disable1	./h/regs.h	/^	unsigned long	Disable1;$/;"	m	struct:__anon2	access:public
 Disable2	./h/regs.h	/^	unsigned long	Disable2;$/;"	m	struct:__anon2	access:public
 DisableBasic	./h/regs.h	/^	unsigned long	DisableBasic;$/;"	m	struct:__anon2	access:public
@@ -78,8 +86,8 @@ DisableInterrupt	./bsp/interrupts.c	/^int DisableInterrupt(int nIRQ) {$/;"	f	sig
 DisableInterrupt	./h/interrupts.h	/^int DisableInterrupt		(int nIRQ);$/;"	p	signature:(int nIRQ)
 DisableInterrupts	./bsp/interrupts.c	/^int DisableInterrupts() {$/;"	f
 DisableInterrupts	./h/interrupts.h	/^int DisableInterrupts		();$/;"	p	signature:()
-ENABLE_RX_INTR	./h/uart.h	10;"	d
-ENABLE_TX_INTR	./h/uart.h	11;"	d
+ENABLE_RX_INTR	./h/uart.h	11;"	d
+ENABLE_TX_INTR	./h/uart.h	12;"	d
 EOT	./bsp/xmodem.c	55;"	d	file:
 Enable1	./h/regs.h	/^	unsigned long	Enable1;$/;"	m	struct:__anon2	access:public
 Enable2	./h/regs.h	/^	unsigned long	Enable2;$/;"	m	struct:__anon2	access:public
@@ -94,7 +102,7 @@ FIQCtrl	./h/regs.h	/^	unsigned long	FIQCtrl;$/;"	m	struct:__anon2	access:public
 FN_INTERRUPT_HANDLER	./h/interrupts.h	/^typedef void (*FN_INTERRUPT_HANDLER)(int nIRQ, void *pParam);$/;"	t
 FP32	./h/ucos/OS_CPU.H	/^typedef float          FP32;$/;"	t
 FP64	./h/ucos/OS_CPU.H	/^typedef double         FP64;$/;"	t
-Fifo_t	./h/fifo.h	/^} Fifo_t;$/;"	t	typeref:struct:__anon15
+Fifo_t	./h/fifo.h	/^} Fifo_t;$/;"	t	typeref:struct:__anon16
 GET32	./bsp/uart.c	/^extern unsigned int GET32 ( unsigned int );$/;"	p	file:	signature:( unsigned int )
 GET32	./init/startup.s	/^GET32:$/;"	l
 GET_PC	./init/startup.s	/^GET_PC:$/;"	l
@@ -120,31 +128,32 @@ INT8S	./h/ucos/OS_CPU.H	/^typedef signed   char  INT8S;$/;"	t
 INT8U	./h/ucos/OS_CPU.H	/^typedef unsigned char  INT8U;                  $/;"	t
 INTC_REGS	./h/regs.h	/^} INTC_REGS;$/;"	t	typeref:struct:__anon2
 INTEN	./h/dma.h	35;"	d
-INTERRUPT_VECTOR	./h/interrupts.h	/^} INTERRUPT_VECTOR;$/;"	t	typeref:struct:__anon3
+INTERRUPT_VECTOR	./h/interrupts.h	/^} INTERRUPT_VECTOR;$/;"	t	typeref:struct:__anon4
 IRQBasic	./h/regs.h	/^	unsigned long	IRQBasic;	\/\/ Pending 0$/;"	m	struct:__anon2	access:public
 InitInterruptController	./bsp/interrupts.c	/^int InitInterruptController() {$/;"	f
 InitInterruptController	./h/interrupts.h	/^int InitInterruptController	();$/;"	p	signature:()
 LOD	./h/regs.h	/^	unsigned long LOD;$/;"	m	struct:_BCM2835_TIMER_REGS	access:public
 LONG	./h/ucos/OS_CPU.H	30;"	d
 MAXRETRANS	./bsp/xmodem.c	62;"	d	file:
+MAX_DEV	./h/device.h	6;"	d
 MIS	./h/regs.h	/^	unsigned long MIS;$/;"	m	struct:_BCM2835_TIMER_REGS	access:public
 NAK	./bsp/xmodem.c	57;"	d	file:
 NO_WIDE_BURSTS	./h/dma.h	21;"	d
 NULL	./h/ucos/OS_CPU.H	34;"	d
-NextCBAddr	./h/dma.h	/^INT32U  NextCBAddr;$/;"	m	struct:__anon14	access:public
+NextCBAddr	./h/dma.h	/^INT32U  NextCBAddr;$/;"	m	struct:__anon15	access:public
 OBJS	./makefile	/^OBJS = build\/startup.o $/;"	m
-OSAddr	./h/ucos/uCOS_II.H	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon9	access:public
-OSAddr	./ucos/ucos_ii.h	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon21	access:public
-OSBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon9	access:public
-OSBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon21	access:public
+OSAddr	./h/ucos/uCOS_II.H	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon10	access:public
+OSAddr	./ucos/ucos_ii.h	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon22	access:public
+OSBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon10	access:public
+OSBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon22	access:public
 OSCPUEnableIrq	./h/ucos/OS_CPU.H	/^void OSCPUEnableIrq(void);$/;"	p	signature:(void)
 OSCPUGetSR	./h/ucos/OS_CPU.H	/^int OSCPUGetSR(void);$/;"	p	signature:(void)
 OSCPURestoreSR	./h/ucos/OS_CPU.H	/^void OSCPURestoreSR(OS_CPU_SR cpu_sr);$/;"	p	signature:(OS_CPU_SR cpu_sr)
 OSCPUSaveSR	./h/ucos/OS_CPU.H	/^OS_CPU_SR  OSCPUSaveSR(void);$/;"	p	signature:(void)
 OSCPUUsage	./h/ucos/uCOS_II.H	/^OS_EXT  INT8S             OSCPUUsage;               \/* Percentage of CPU used                          *\/$/;"	v
 OSCPUUsage	./ucos/ucos_ii.h	/^OS_EXT  INT8S             OSCPUUsage;               \/* Percentage of CPU used                          *\/$/;"	v
-OSCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon12	access:public
-OSCnt	./ucos/ucos_ii.h	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon24	access:public
+OSCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon13	access:public
+OSCnt	./ucos/ucos_ii.h	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon25	access:public
 OSCtxSw	./h/ucos/uCOS_II.H	/^void          OSCtxSw(void);$/;"	p	signature:(void)
 OSCtxSw	./port/OS_Cpu_a.s	/^OSCtxSw:$/;"	l
 OSCtxSw	./ucos/ucos_ii.h	/^void          OSCtxSw(void);$/;"	p	signature:(void)
@@ -154,44 +163,44 @@ OSDataSize	./ucos/os_dbg_r.c	/^INT16U  const  OSDataSize = sizeof(OSCtxSwCtr)$/;
 OSDebugEn	./ucos/os_dbg_r.c	/^INT16U  const  OSDebugEn           = OS_DEBUG_EN;               \/* Debug constants are defined below   *\/$/;"	v
 OSDebugInit	./ucos/os_dbg_r.c	/^void  OSDebugInit (void)$/;"	f	signature:(void)
 OSEndiannessTest	./ucos/os_dbg_r.c	/^INT32U  const  OSEndiannessTest    = 0x12345678L;               \/* Variable to test CPU endianness     *\/$/;"	v
-OSEventCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon4	access:public
-OSEventCnt	./ucos/ucos_ii.h	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon16	access:public
+OSEventCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon5	access:public
+OSEventCnt	./ucos/ucos_ii.h	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon17	access:public
 OSEventEn	./ucos/os_dbg_r.c	/^INT16U  const  OSEventEn           = OS_EVENT_EN;$/;"	v
 OSEventFreeList	./h/ucos/uCOS_II.H	/^OS_EXT  OS_EVENT         *OSEventFreeList;          \/* Pointer to list of free EVENT control blocks    *\/$/;"	v
 OSEventFreeList	./ucos/ucos_ii.h	/^OS_EXT  OS_EVENT         *OSEventFreeList;          \/* Pointer to list of free EVENT control blocks    *\/$/;"	v
-OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon11	access:public
-OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon10	access:public
-OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon12	access:public
-OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon4	access:public
-OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon7	access:public
-OSEventGrp	./ucos/ucos_ii.h	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon23	access:public
-OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon22	access:public
-OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon24	access:public
-OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon16	access:public
-OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon19	access:public
+OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon12	access:public
+OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon11	access:public
+OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon13	access:public
+OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon5	access:public
+OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon8	access:public
+OSEventGrp	./ucos/ucos_ii.h	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon24	access:public
+OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon23	access:public
+OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon25	access:public
+OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon17	access:public
+OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon20	access:public
 OSEventMax	./ucos/os_dbg_r.c	/^INT16U  const  OSEventMax          = OS_MAX_EVENTS;             \/* Number of event control blocks      *\/$/;"	v
 OSEventMultiEn	./ucos/os_dbg_r.c	/^INT16U  const  OSEventMultiEn      = OS_EVENT_MULTI_EN;$/;"	v
 OSEventNameSize	./ucos/os_dbg_r.c	/^INT16U  const  OSEventNameSize     = OS_EVENT_NAME_SIZE;        \/* Size (in bytes) of event names      *\/$/;"	v
-OSEventPtr	./h/ucos/uCOS_II.H	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon4	access:public
-OSEventPtr	./ucos/ucos_ii.h	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon16	access:public
+OSEventPtr	./h/ucos/uCOS_II.H	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon5	access:public
+OSEventPtr	./ucos/ucos_ii.h	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon17	access:public
 OSEventSize	./ucos/os_dbg_r.c	/^INT16U  const  OSEventSize         = 0;$/;"	v
 OSEventSize	./ucos/os_dbg_r.c	/^INT16U  const  OSEventSize         = sizeof(OS_EVENT);          \/* Size in Bytes of OS_EVENT           *\/$/;"	v
-OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon11	access:public
-OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon10	access:public
-OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon12	access:public
-OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon4	access:public
-OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon7	access:public
+OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon12	access:public
+OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon11	access:public
+OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon13	access:public
+OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon5	access:public
+OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon8	access:public
 OSEventTbl	./h/ucos/uCOS_II.H	/^OS_EXT  OS_EVENT          OSEventTbl[OS_MAX_EVENTS];\/* Table of EVENT control blocks                   *\/$/;"	v
-OSEventTbl	./ucos/ucos_ii.h	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon23	access:public
-OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon22	access:public
-OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon24	access:public
-OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon16	access:public
-OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon19	access:public
+OSEventTbl	./ucos/ucos_ii.h	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon24	access:public
+OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon23	access:public
+OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon25	access:public
+OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon17	access:public
+OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon20	access:public
 OSEventTbl	./ucos/ucos_ii.h	/^OS_EXT  OS_EVENT          OSEventTbl[OS_MAX_EVENTS];\/* Table of EVENT control blocks                   *\/$/;"	v
 OSEventTblSize	./ucos/os_dbg_r.c	/^INT16U  const  OSEventTblSize      = 0;$/;"	v
 OSEventTblSize	./ucos/os_dbg_r.c	/^INT16U  const  OSEventTblSize      = sizeof(OSEventTbl);        \/* Size of OSEventTbl[] in bytes       *\/$/;"	v
-OSEventType	./h/ucos/uCOS_II.H	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon4	access:public
-OSEventType	./ucos/ucos_ii.h	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon16	access:public
+OSEventType	./h/ucos/uCOS_II.H	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon5	access:public
+OSEventType	./ucos/ucos_ii.h	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon17	access:public
 OSFlagAccept	./h/ucos/uCOS_II.H	/^OS_FLAGS      OSFlagAccept(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT8U *err);$/;"	p	signature:(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT8U *err)
 OSFlagAccept	./ucos/os_flag.c	/^OS_FLAGS  OSFlagAccept (OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT8U *err)$/;"	f	signature:(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT8U *err)
 OSFlagAccept	./ucos/ucos_ii.h	/^OS_FLAGS      OSFlagAccept(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT8U *err);$/;"	p	signature:(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT8U *err)
@@ -202,28 +211,28 @@ OSFlagDel	./h/ucos/uCOS_II.H	/^OS_FLAG_GRP  *OSFlagDel(OS_FLAG_GRP *pgrp, INT8U 
 OSFlagDel	./ucos/os_flag.c	/^OS_FLAG_GRP  *OSFlagDel (OS_FLAG_GRP *pgrp, INT8U opt, INT8U *err)$/;"	f	signature:(OS_FLAG_GRP *pgrp, INT8U opt, INT8U *err)
 OSFlagDel	./ucos/ucos_ii.h	/^OS_FLAG_GRP  *OSFlagDel(OS_FLAG_GRP *pgrp, INT8U opt, INT8U *err);$/;"	p	signature:(OS_FLAG_GRP *pgrp, INT8U opt, INT8U *err)
 OSFlagEn	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagEn            = OS_FLAG_EN;$/;"	v
-OSFlagFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon5	access:public
-OSFlagFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon17	access:public
+OSFlagFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon6	access:public
+OSFlagFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon18	access:public
 OSFlagFreeList	./h/ucos/uCOS_II.H	/^OS_EXT  OS_FLAG_GRP      *OSFlagFreeList;           \/* Pointer to free list of event flag groups       *\/$/;"	v
 OSFlagFreeList	./ucos/ucos_ii.h	/^OS_EXT  OS_FLAG_GRP      *OSFlagFreeList;           \/* Pointer to free list of event flag groups       *\/$/;"	v
 OSFlagGrpSize	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagGrpSize       = 0;$/;"	v
 OSFlagGrpSize	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagGrpSize       = sizeof(OS_FLAG_GRP);       \/* Size in Bytes of OS_FLAG_GRP        *\/$/;"	v
 OSFlagMax	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagMax           = OS_MAX_FLAGS;$/;"	v
 OSFlagNameSize	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagNameSize      = OS_FLAG_NAME_SIZE;         \/* Size (in bytes) of flag names       *\/$/;"	v
-OSFlagNodeFlagGrp	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon6	access:public
-OSFlagNodeFlagGrp	./ucos/ucos_ii.h	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon18	access:public
-OSFlagNodeFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon6	access:public
-OSFlagNodeFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon18	access:public
-OSFlagNodeNext	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon6	access:public
-OSFlagNodeNext	./ucos/ucos_ii.h	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon18	access:public
-OSFlagNodePrev	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon6	access:public
-OSFlagNodePrev	./ucos/ucos_ii.h	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon18	access:public
+OSFlagNodeFlagGrp	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon7	access:public
+OSFlagNodeFlagGrp	./ucos/ucos_ii.h	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon19	access:public
+OSFlagNodeFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon7	access:public
+OSFlagNodeFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon19	access:public
+OSFlagNodeNext	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon7	access:public
+OSFlagNodeNext	./ucos/ucos_ii.h	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon19	access:public
+OSFlagNodePrev	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon7	access:public
+OSFlagNodePrev	./ucos/ucos_ii.h	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon19	access:public
 OSFlagNodeSize	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagNodeSize      = 0;$/;"	v
 OSFlagNodeSize	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagNodeSize      = sizeof(OS_FLAG_NODE);      \/* Size in Bytes of OS_FLAG_NODE       *\/$/;"	v
-OSFlagNodeTCB	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon6	access:public
-OSFlagNodeTCB	./ucos/ucos_ii.h	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon18	access:public
-OSFlagNodeWaitType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon6	access:public
-OSFlagNodeWaitType	./ucos/ucos_ii.h	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon18	access:public
+OSFlagNodeTCB	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon7	access:public
+OSFlagNodeTCB	./ucos/ucos_ii.h	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon19	access:public
+OSFlagNodeWaitType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon7	access:public
+OSFlagNodeWaitType	./ucos/ucos_ii.h	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon19	access:public
 OSFlagPend	./h/ucos/uCOS_II.H	/^OS_FLAGS      OSFlagPend(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT16U timeout, INT8U *err);$/;"	p	signature:(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT16U timeout, INT8U *err)
 OSFlagPend	./ucos/os_flag.c	/^OS_FLAGS  OSFlagPend (OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT16U timeout, INT8U *err)$/;"	f	signature:(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT16U timeout, INT8U *err)
 OSFlagPend	./ucos/ucos_ii.h	/^OS_FLAGS      OSFlagPend(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT16U timeout, INT8U *err);$/;"	p	signature:(OS_FLAG_GRP *pgrp, OS_FLAGS flags, INT8U wait_type, INT16U timeout, INT8U *err)
@@ -235,16 +244,16 @@ OSFlagQuery	./ucos/os_flag.c	/^OS_FLAGS  OSFlagQuery (OS_FLAG_GRP *pgrp, INT8U *
 OSFlagQuery	./ucos/ucos_ii.h	/^OS_FLAGS      OSFlagQuery(OS_FLAG_GRP *pgrp, INT8U *err);$/;"	p	signature:(OS_FLAG_GRP *pgrp, INT8U *err)
 OSFlagTbl	./h/ucos/uCOS_II.H	/^OS_EXT  OS_FLAG_GRP       OSFlagTbl[OS_MAX_FLAGS];  \/* Table containing event flag groups              *\/$/;"	v
 OSFlagTbl	./ucos/ucos_ii.h	/^OS_EXT  OS_FLAG_GRP       OSFlagTbl[OS_MAX_FLAGS];  \/* Table containing event flag groups              *\/$/;"	v
-OSFlagType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon5	access:public
-OSFlagType	./ucos/ucos_ii.h	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon17	access:public
-OSFlagWaitList	./h/ucos/uCOS_II.H	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon5	access:public
-OSFlagWaitList	./ucos/ucos_ii.h	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon17	access:public
+OSFlagType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon6	access:public
+OSFlagType	./ucos/ucos_ii.h	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon18	access:public
+OSFlagWaitList	./h/ucos/uCOS_II.H	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon6	access:public
+OSFlagWaitList	./ucos/ucos_ii.h	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon18	access:public
 OSFlagWidth	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagWidth         = 0;$/;"	v
 OSFlagWidth	./ucos/os_dbg_r.c	/^INT16U  const  OSFlagWidth         = sizeof(OS_FLAGS);          \/* Width (in bytes) of OS_FLAGS        *\/$/;"	v
-OSFree	./h/ucos/uCOS_II.H	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon13	access:public
-OSFree	./ucos/ucos_ii.h	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon25	access:public
-OSFreeList	./h/ucos/uCOS_II.H	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon9	access:public
-OSFreeList	./ucos/ucos_ii.h	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon21	access:public
+OSFree	./h/ucos/uCOS_II.H	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon14	access:public
+OSFree	./ucos/ucos_ii.h	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon26	access:public
+OSFreeList	./h/ucos/uCOS_II.H	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon10	access:public
+OSFreeList	./ucos/ucos_ii.h	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon22	access:public
 OSIdleCtr	./h/ucos/uCOS_II.H	/^OS_EXT  volatile  INT32U  OSIdleCtr;                                 \/* Idle counter                   *\/$/;"	v
 OSIdleCtr	./ucos/ucos_ii.h	/^OS_EXT  volatile  INT32U  OSIdleCtr;                                 \/* Idle counter                   *\/$/;"	v
 OSIdleCtrMax	./h/ucos/uCOS_II.H	/^OS_EXT  INT32U            OSIdleCtrMax;             \/* Max. value that idle ctr can take in 1 sec.     *\/$/;"	v
@@ -299,26 +308,26 @@ OSMboxPostOpt	./ucos/ucos_ii.h	/^INT8U         OSMboxPostOpt(OS_EVENT *pevent, v
 OSMboxQuery	./h/ucos/uCOS_II.H	/^INT8U         OSMboxQuery(OS_EVENT *pevent, OS_MBOX_DATA *pdata);$/;"	p	signature:(OS_EVENT *pevent, OS_MBOX_DATA *pdata)
 OSMboxQuery	./ucos/os_mbox.c	/^INT8U  OSMboxQuery (OS_EVENT *pevent, OS_MBOX_DATA *pdata)$/;"	f	signature:(OS_EVENT *pevent, OS_MBOX_DATA *pdata)
 OSMboxQuery	./ucos/ucos_ii.h	/^INT8U         OSMboxQuery(OS_EVENT *pevent, OS_MBOX_DATA *pdata);$/;"	p	signature:(OS_EVENT *pevent, OS_MBOX_DATA *pdata)
-OSMemAddr	./h/ucos/uCOS_II.H	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon8	access:public
-OSMemAddr	./ucos/ucos_ii.h	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon20	access:public
-OSMemBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon8	access:public
-OSMemBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon20	access:public
+OSMemAddr	./h/ucos/uCOS_II.H	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon9	access:public
+OSMemAddr	./ucos/ucos_ii.h	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon21	access:public
+OSMemBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon9	access:public
+OSMemBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon21	access:public
 OSMemCreate	./h/ucos/uCOS_II.H	/^OS_MEM       *OSMemCreate(void *addr, INT32U nblks, INT32U blksize, INT8U *err);$/;"	p	signature:(void *addr, INT32U nblks, INT32U blksize, INT8U *err)
 OSMemCreate	./ucos/os_mem.c	/^OS_MEM  *OSMemCreate (void *addr, INT32U nblks, INT32U blksize, INT8U *err)$/;"	f	signature:(void *addr, INT32U nblks, INT32U blksize, INT8U *err)
 OSMemCreate	./ucos/ucos_ii.h	/^OS_MEM       *OSMemCreate(void *addr, INT32U nblks, INT32U blksize, INT8U *err);$/;"	p	signature:(void *addr, INT32U nblks, INT32U blksize, INT8U *err)
 OSMemEn	./ucos/os_dbg_r.c	/^INT16U  const  OSMemEn             = OS_MEM_EN;$/;"	v
-OSMemFreeList	./h/ucos/uCOS_II.H	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon8	access:public
+OSMemFreeList	./h/ucos/uCOS_II.H	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon9	access:public
 OSMemFreeList	./h/ucos/uCOS_II.H	/^OS_EXT  OS_MEM           *OSMemFreeList;            \/* Pointer to free list of memory partitions       *\/$/;"	v
-OSMemFreeList	./ucos/ucos_ii.h	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon20	access:public
+OSMemFreeList	./ucos/ucos_ii.h	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon21	access:public
 OSMemFreeList	./ucos/ucos_ii.h	/^OS_EXT  OS_MEM           *OSMemFreeList;            \/* Pointer to free list of memory partitions       *\/$/;"	v
 OSMemGet	./h/ucos/uCOS_II.H	/^void         *OSMemGet(OS_MEM *pmem, INT8U *err);$/;"	p	signature:(OS_MEM *pmem, INT8U *err)
 OSMemGet	./ucos/os_mem.c	/^void  *OSMemGet (OS_MEM *pmem, INT8U *err)$/;"	f	signature:(OS_MEM *pmem, INT8U *err)
 OSMemGet	./ucos/ucos_ii.h	/^void         *OSMemGet(OS_MEM *pmem, INT8U *err);$/;"	p	signature:(OS_MEM *pmem, INT8U *err)
 OSMemMax	./ucos/os_dbg_r.c	/^INT16U  const  OSMemMax            = OS_MAX_MEM_PART;           \/* Number of memory partitions         *\/$/;"	v
-OSMemNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon8	access:public
-OSMemNBlks	./ucos/ucos_ii.h	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon20	access:public
-OSMemNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon8	access:public
-OSMemNFree	./ucos/ucos_ii.h	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon20	access:public
+OSMemNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon9	access:public
+OSMemNBlks	./ucos/ucos_ii.h	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon21	access:public
+OSMemNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon9	access:public
+OSMemNFree	./ucos/ucos_ii.h	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon21	access:public
 OSMemNameSize	./ucos/os_dbg_r.c	/^INT16U  const  OSMemNameSize       = OS_MEM_NAME_SIZE;          \/* Size (in bytes) of partition names  *\/$/;"	v
 OSMemPut	./h/ucos/uCOS_II.H	/^INT8U         OSMemPut(OS_MEM *pmem, void *pblk);$/;"	p	signature:(OS_MEM *pmem, void *pblk)
 OSMemPut	./ucos/os_mem.c	/^INT8U  OSMemPut (OS_MEM  *pmem, void *pblk)$/;"	f	signature:(OS_MEM *pmem, void *pblk)
@@ -332,10 +341,10 @@ OSMemTbl	./h/ucos/uCOS_II.H	/^OS_EXT  OS_MEM            OSMemTbl[OS_MAX_MEM_PART
 OSMemTbl	./ucos/ucos_ii.h	/^OS_EXT  OS_MEM            OSMemTbl[OS_MAX_MEM_PART];\/* Storage for memory partition manager            *\/$/;"	v
 OSMemTblSize	./ucos/os_dbg_r.c	/^INT16U  const  OSMemTblSize        = 0;$/;"	v
 OSMemTblSize	./ucos/os_dbg_r.c	/^INT16U  const  OSMemTblSize        = sizeof(OSMemTbl);$/;"	v
-OSMsg	./h/ucos/uCOS_II.H	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon11	access:public
-OSMsg	./h/ucos/uCOS_II.H	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon7	access:public
-OSMsg	./ucos/ucos_ii.h	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon23	access:public
-OSMsg	./ucos/ucos_ii.h	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon19	access:public
+OSMsg	./h/ucos/uCOS_II.H	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon12	access:public
+OSMsg	./h/ucos/uCOS_II.H	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon8	access:public
+OSMsg	./ucos/ucos_ii.h	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon24	access:public
+OSMsg	./ucos/ucos_ii.h	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon20	access:public
 OSMutexAccept	./h/ucos/uCOS_II.H	/^INT8U         OSMutexAccept(OS_EVENT *pevent, INT8U *err);$/;"	p	signature:(OS_EVENT *pevent, INT8U *err)
 OSMutexAccept	./ucos/os_mutex.c	/^INT8U  OSMutexAccept (OS_EVENT *pevent, INT8U *err)$/;"	f	signature:(OS_EVENT *pevent, INT8U *err)
 OSMutexAccept	./ucos/ucos_ii.h	/^INT8U         OSMutexAccept(OS_EVENT *pevent, INT8U *err);$/;"	p	signature:(OS_EVENT *pevent, INT8U *err)
@@ -346,8 +355,8 @@ OSMutexDel	./h/ucos/uCOS_II.H	/^OS_EVENT     *OSMutexDel(OS_EVENT *pevent, INT8U
 OSMutexDel	./ucos/os_mutex.c	/^OS_EVENT  *OSMutexDel (OS_EVENT *pevent, INT8U opt, INT8U *err)$/;"	f	signature:(OS_EVENT *pevent, INT8U opt, INT8U *err)
 OSMutexDel	./ucos/ucos_ii.h	/^OS_EVENT     *OSMutexDel(OS_EVENT *pevent, INT8U opt, INT8U *err);$/;"	p	signature:(OS_EVENT *pevent, INT8U opt, INT8U *err)
 OSMutexEn	./ucos/os_dbg_r.c	/^INT16U  const  OSMutexEn           = OS_MUTEX_EN;$/;"	v
-OSMutexPIP	./h/ucos/uCOS_II.H	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon10	access:public
-OSMutexPIP	./ucos/ucos_ii.h	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon22	access:public
+OSMutexPIP	./h/ucos/uCOS_II.H	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon11	access:public
+OSMutexPIP	./ucos/ucos_ii.h	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon23	access:public
 OSMutexPend	./h/ucos/uCOS_II.H	/^void          OSMutexPend(OS_EVENT *pevent, INT16U timeout, INT8U *err);$/;"	p	signature:(OS_EVENT *pevent, INT16U timeout, INT8U *err)
 OSMutexPend	./ucos/os_mutex.c	/^void  OSMutexPend (OS_EVENT *pevent, INT16U timeout, INT8U *err)$/;"	f	signature:(OS_EVENT *pevent, INT16U timeout, INT8U *err)
 OSMutexPend	./ucos/ucos_ii.h	/^void          OSMutexPend(OS_EVENT *pevent, INT16U timeout, INT8U *err);$/;"	p	signature:(OS_EVENT *pevent, INT16U timeout, INT8U *err)
@@ -357,16 +366,16 @@ OSMutexPost	./ucos/ucos_ii.h	/^INT8U         OSMutexPost(OS_EVENT *pevent);$/;"	
 OSMutexQuery	./h/ucos/uCOS_II.H	/^INT8U         OSMutexQuery(OS_EVENT *pevent, OS_MUTEX_DATA *pdata);$/;"	p	signature:(OS_EVENT *pevent, OS_MUTEX_DATA *pdata)
 OSMutexQuery	./ucos/os_mutex.c	/^INT8U  OSMutexQuery (OS_EVENT *pevent, OS_MUTEX_DATA *pdata)$/;"	f	signature:(OS_EVENT *pevent, OS_MUTEX_DATA *pdata)
 OSMutexQuery	./ucos/ucos_ii.h	/^INT8U         OSMutexQuery(OS_EVENT *pevent, OS_MUTEX_DATA *pdata);$/;"	p	signature:(OS_EVENT *pevent, OS_MUTEX_DATA *pdata)
-OSNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon9	access:public
-OSNBlks	./ucos/ucos_ii.h	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon21	access:public
-OSNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon9	access:public
-OSNFree	./ucos/ucos_ii.h	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon21	access:public
-OSNMsgs	./h/ucos/uCOS_II.H	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon11	access:public
-OSNMsgs	./ucos/ucos_ii.h	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon23	access:public
-OSNUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon9	access:public
-OSNUsed	./ucos/ucos_ii.h	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon21	access:public
-OSOwnerPrio	./h/ucos/uCOS_II.H	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon10	access:public
-OSOwnerPrio	./ucos/ucos_ii.h	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon22	access:public
+OSNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon10	access:public
+OSNBlks	./ucos/ucos_ii.h	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon22	access:public
+OSNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon10	access:public
+OSNFree	./ucos/ucos_ii.h	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon22	access:public
+OSNMsgs	./h/ucos/uCOS_II.H	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon12	access:public
+OSNMsgs	./ucos/ucos_ii.h	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon24	access:public
+OSNUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon10	access:public
+OSNUsed	./ucos/ucos_ii.h	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon22	access:public
+OSOwnerPrio	./h/ucos/uCOS_II.H	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon11	access:public
+OSOwnerPrio	./ucos/ucos_ii.h	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon23	access:public
 OSPrioCur	./h/ucos/uCOS_II.H	/^OS_EXT  INT8U             OSPrioCur;                \/* Priority of current task                        *\/$/;"	v
 OSPrioCur	./ucos/ucos_ii.h	/^OS_EXT  INT8U             OSPrioCur;                \/* Priority of current task                        *\/$/;"	v
 OSPrioHighRdy	./h/ucos/uCOS_II.H	/^OS_EXT  INT8U             OSPrioHighRdy;            \/* Priority of highest priority task               *\/$/;"	v
@@ -413,11 +422,11 @@ OSQPtr	./ucos/ucos_ii.h	/^    struct os_q   *OSQPtr;              \/* Link to ne
 OSQQuery	./h/ucos/uCOS_II.H	/^INT8U         OSQQuery(OS_EVENT *pevent, OS_Q_DATA *pdata);$/;"	p	signature:(OS_EVENT *pevent, OS_Q_DATA *pdata)
 OSQQuery	./ucos/os_q.c	/^INT8U  OSQQuery (OS_EVENT *pevent, OS_Q_DATA *pdata)$/;"	f	signature:(OS_EVENT *pevent, OS_Q_DATA *pdata)
 OSQQuery	./ucos/ucos_ii.h	/^INT8U         OSQQuery(OS_EVENT *pevent, OS_Q_DATA *pdata);$/;"	p	signature:(OS_EVENT *pevent, OS_Q_DATA *pdata)
-OSQSize	./h/ucos/uCOS_II.H	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon11	access:public
+OSQSize	./h/ucos/uCOS_II.H	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon12	access:public
 OSQSize	./h/ucos/uCOS_II.H	/^    INT16U         OSQSize;             \/* Size of queue (maximum number of entries)                   *\/$/;"	m	struct:os_q	access:public
 OSQSize	./ucos/os_dbg_r.c	/^INT16U  const  OSQSize             = 0;$/;"	v
 OSQSize	./ucos/os_dbg_r.c	/^INT16U  const  OSQSize             = sizeof(OS_Q);              \/* Size in bytes of OS_Q structure     *\/$/;"	v
-OSQSize	./ucos/ucos_ii.h	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon23	access:public
+OSQSize	./ucos/ucos_ii.h	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon24	access:public
 OSQSize	./ucos/ucos_ii.h	/^    INT16U         OSQSize;             \/* Size of queue (maximum number of entries)                   *\/$/;"	m	struct:os_q	access:public
 OSQStart	./h/ucos/uCOS_II.H	/^    void         **OSQStart;            \/* Pointer to start of queue data                              *\/$/;"	m	struct:os_q	access:public
 OSQStart	./ucos/ucos_ii.h	/^    void         **OSQStart;            \/* Pointer to start of queue data                              *\/$/;"	m	struct:os_q	access:public
@@ -652,10 +661,10 @@ OSTmr_Unlink	./ucos/os_tmr.c	/^static  void  OSTmr_Unlink (OS_TMR *ptmr)$/;"	f	f
 OSTmr_Unlock	./ucos/os_tmr.c	/^static  void     OSTmr_Unlock        (void);$/;"	p	file:	signature:(void)
 OSTmr_Unlock	./ucos/os_tmr.c	/^static  void  OSTmr_Unlock (void)$/;"	f	file:	signature:(void)
 OSUnMapTbl	./ucos/os_core.c	/^INT8U  const  OSUnMapTbl[] = {$/;"	v
-OSUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon13	access:public
-OSUsed	./ucos/ucos_ii.h	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon25	access:public
-OSValue	./h/ucos/uCOS_II.H	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon10	access:public
-OSValue	./ucos/ucos_ii.h	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon22	access:public
+OSUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon14	access:public
+OSUsed	./ucos/ucos_ii.h	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon26	access:public
+OSValue	./h/ucos/uCOS_II.H	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon11	access:public
+OSValue	./ucos/ucos_ii.h	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon23	access:public
 OSVersion	./h/ucos/uCOS_II.H	/^INT16U        OSVersion(void);$/;"	p	signature:(void)
 OSVersion	./ucos/os_core.c	/^INT16U  OSVersion (void)$/;"	f	signature:(void)
 OSVersion	./ucos/ucos_ii.h	/^INT16U        OSVersion(void);$/;"	p	signature:(void)
@@ -705,8 +714,8 @@ OS_ERR_QUERY_ISR	./h/ucos/uCOS_II.H	135;"	d
 OS_ERR_QUERY_ISR	./ucos/ucos_ii.h	145;"	d
 OS_ERR_TASK_WAITING	./h/ucos/uCOS_II.H	137;"	d
 OS_ERR_TASK_WAITING	./ucos/ucos_ii.h	147;"	d
-OS_EVENT	./h/ucos/uCOS_II.H	/^} OS_EVENT;$/;"	t	typeref:struct:__anon4
-OS_EVENT	./ucos/ucos_ii.h	/^} OS_EVENT;$/;"	t	typeref:struct:__anon16
+OS_EVENT	./h/ucos/uCOS_II.H	/^} OS_EVENT;$/;"	t	typeref:struct:__anon5
+OS_EVENT	./ucos/ucos_ii.h	/^} OS_EVENT;$/;"	t	typeref:struct:__anon17
 OS_EVENT_EN	./h/ucos/uCOS_II.H	43;"	d
 OS_EVENT_EN	./ucos/ucos_ii.h	53;"	d
 OS_EVENT_MULTI_EN	./ucos/os_cfg_r.h	36;"	d
@@ -758,8 +767,8 @@ OS_FLAG_ERR_NOT_RDY	./h/ucos/uCOS_II.H	190;"	d
 OS_FLAG_ERR_NOT_RDY	./ucos/ucos_ii.h	200;"	d
 OS_FLAG_ERR_WAIT_TYPE	./h/ucos/uCOS_II.H	189;"	d
 OS_FLAG_ERR_WAIT_TYPE	./ucos/ucos_ii.h	199;"	d
-OS_FLAG_GRP	./h/ucos/uCOS_II.H	/^} OS_FLAG_GRP;    $/;"	t	typeref:struct:__anon5
-OS_FLAG_GRP	./ucos/ucos_ii.h	/^} OS_FLAG_GRP;    $/;"	t	typeref:struct:__anon17
+OS_FLAG_GRP	./h/ucos/uCOS_II.H	/^} OS_FLAG_GRP;    $/;"	t	typeref:struct:__anon6
+OS_FLAG_GRP	./ucos/ucos_ii.h	/^} OS_FLAG_GRP;    $/;"	t	typeref:struct:__anon18
 OS_FLAG_GRP_DEPLETED	./h/ucos/uCOS_II.H	192;"	d
 OS_FLAG_GRP_DEPLETED	./ucos/ucos_ii.h	202;"	d
 OS_FLAG_INVALID_OPT	./h/ucos/uCOS_II.H	191;"	d
@@ -767,8 +776,8 @@ OS_FLAG_INVALID_OPT	./ucos/ucos_ii.h	201;"	d
 OS_FLAG_INVALID_PGRP	./h/ucos/uCOS_II.H	188;"	d
 OS_FLAG_INVALID_PGRP	./ucos/ucos_ii.h	198;"	d
 OS_FLAG_NAME_SIZE	./ucos/os_cfg_r.h	78;"	d
-OS_FLAG_NODE	./h/ucos/uCOS_II.H	/^} OS_FLAG_NODE;$/;"	t	typeref:struct:__anon6
-OS_FLAG_NODE	./ucos/ucos_ii.h	/^} OS_FLAG_NODE;$/;"	t	typeref:struct:__anon18
+OS_FLAG_NODE	./h/ucos/uCOS_II.H	/^} OS_FLAG_NODE;$/;"	t	typeref:struct:__anon7
+OS_FLAG_NODE	./ucos/ucos_ii.h	/^} OS_FLAG_NODE;$/;"	t	typeref:struct:__anon19
 OS_FLAG_QUERY_EN	./h/ucos/OS_CFG.H	45;"	d
 OS_FLAG_QUERY_EN	./ucos/os_cfg_r.h	79;"	d
 OS_FLAG_SET	./h/ucos/uCOS_II.H	93;"	d
@@ -832,8 +841,8 @@ OS_MAX_TASKS	./h/ucos/OS_CFG.H	26;"	d
 OS_MAX_TASKS	./ucos/os_cfg_r.h	46;"	d
 OS_MBOX_ACCEPT_EN	./h/ucos/OS_CFG.H	50;"	d
 OS_MBOX_ACCEPT_EN	./ucos/os_cfg_r.h	86;"	d
-OS_MBOX_DATA	./h/ucos/uCOS_II.H	/^} OS_MBOX_DATA;$/;"	t	typeref:struct:__anon7
-OS_MBOX_DATA	./ucos/ucos_ii.h	/^} OS_MBOX_DATA;$/;"	t	typeref:struct:__anon19
+OS_MBOX_DATA	./h/ucos/uCOS_II.H	/^} OS_MBOX_DATA;$/;"	t	typeref:struct:__anon8
+OS_MBOX_DATA	./ucos/ucos_ii.h	/^} OS_MBOX_DATA;$/;"	t	typeref:struct:__anon20
 OS_MBOX_DEL_EN	./h/ucos/OS_CFG.H	51;"	d
 OS_MBOX_DEL_EN	./ucos/os_cfg_r.h	87;"	d
 OS_MBOX_EN	./h/ucos/OS_CFG.H	49;"	d
@@ -847,10 +856,10 @@ OS_MBOX_POST_OPT_EN	./h/ucos/OS_CFG.H	53;"	d
 OS_MBOX_POST_OPT_EN	./ucos/os_cfg_r.h	90;"	d
 OS_MBOX_QUERY_EN	./h/ucos/OS_CFG.H	54;"	d
 OS_MBOX_QUERY_EN	./ucos/os_cfg_r.h	91;"	d
-OS_MEM	./h/ucos/uCOS_II.H	/^} OS_MEM;$/;"	t	typeref:struct:__anon8
-OS_MEM	./ucos/ucos_ii.h	/^} OS_MEM;$/;"	t	typeref:struct:__anon20
-OS_MEM_DATA	./h/ucos/uCOS_II.H	/^} OS_MEM_DATA;$/;"	t	typeref:struct:__anon9
-OS_MEM_DATA	./ucos/ucos_ii.h	/^} OS_MEM_DATA;$/;"	t	typeref:struct:__anon21
+OS_MEM	./h/ucos/uCOS_II.H	/^} OS_MEM;$/;"	t	typeref:struct:__anon9
+OS_MEM	./ucos/ucos_ii.h	/^} OS_MEM;$/;"	t	typeref:struct:__anon21
+OS_MEM_DATA	./h/ucos/uCOS_II.H	/^} OS_MEM_DATA;$/;"	t	typeref:struct:__anon10
+OS_MEM_DATA	./ucos/ucos_ii.h	/^} OS_MEM_DATA;$/;"	t	typeref:struct:__anon22
 OS_MEM_EN	./h/ucos/OS_CFG.H	58;"	d
 OS_MEM_EN	./ucos/os_cfg_r.h	95;"	d
 OS_MEM_FULL	./h/ucos/uCOS_II.H	175;"	d
@@ -877,8 +886,8 @@ OS_MEM_QUERY_EN	./ucos/os_cfg_r.h	97;"	d
 OS_MUTEX_ACCEPT_EN	./h/ucos/OS_CFG.H	64;"	d
 OS_MUTEX_ACCEPT_EN	./ucos/os_cfg_r.h	102;"	d
 OS_MUTEX_AVAILABLE	./ucos/os_mutex.c	28;"	d	file:
-OS_MUTEX_DATA	./h/ucos/uCOS_II.H	/^} OS_MUTEX_DATA;$/;"	t	typeref:struct:__anon10
-OS_MUTEX_DATA	./ucos/ucos_ii.h	/^} OS_MUTEX_DATA;$/;"	t	typeref:struct:__anon22
+OS_MUTEX_DATA	./h/ucos/uCOS_II.H	/^} OS_MUTEX_DATA;$/;"	t	typeref:struct:__anon11
+OS_MUTEX_DATA	./ucos/ucos_ii.h	/^} OS_MUTEX_DATA;$/;"	t	typeref:struct:__anon23
 OS_MUTEX_DEL_EN	./h/ucos/OS_CFG.H	65;"	d
 OS_MUTEX_DEL_EN	./ucos/os_cfg_r.h	103;"	d
 OS_MUTEX_EN	./h/ucos/OS_CFG.H	63;"	d
@@ -919,8 +928,8 @@ OS_QInit	./ucos/os_q.c	/^void  OS_QInit (void)$/;"	f	signature:(void)
 OS_QInit	./ucos/ucos_ii.h	/^void          OS_QInit(void);$/;"	p	signature:(void)
 OS_Q_ACCEPT_EN	./h/ucos/OS_CFG.H	71;"	d
 OS_Q_ACCEPT_EN	./ucos/os_cfg_r.h	109;"	d
-OS_Q_DATA	./h/ucos/uCOS_II.H	/^} OS_Q_DATA;$/;"	t	typeref:struct:__anon11
-OS_Q_DATA	./ucos/ucos_ii.h	/^} OS_Q_DATA;$/;"	t	typeref:struct:__anon23
+OS_Q_DATA	./h/ucos/uCOS_II.H	/^} OS_Q_DATA;$/;"	t	typeref:struct:__anon12
+OS_Q_DATA	./ucos/ucos_ii.h	/^} OS_Q_DATA;$/;"	t	typeref:struct:__anon24
 OS_Q_DEL_EN	./h/ucos/OS_CFG.H	72;"	d
 OS_Q_DEL_EN	./ucos/os_cfg_r.h	110;"	d
 OS_Q_EN	./h/ucos/OS_CFG.H	70;"	d
@@ -944,8 +953,8 @@ OS_SCHED_LOCK_EN	./h/ucos/OS_CFG.H	30;"	d
 OS_SCHED_LOCK_EN	./ucos/os_cfg_r.h	48;"	d
 OS_SEM_ACCEPT_EN	./h/ucos/OS_CFG.H	82;"	d
 OS_SEM_ACCEPT_EN	./ucos/os_cfg_r.h	121;"	d
-OS_SEM_DATA	./h/ucos/uCOS_II.H	/^} OS_SEM_DATA;$/;"	t	typeref:struct:__anon12
-OS_SEM_DATA	./ucos/ucos_ii.h	/^} OS_SEM_DATA;$/;"	t	typeref:struct:__anon24
+OS_SEM_DATA	./h/ucos/uCOS_II.H	/^} OS_SEM_DATA;$/;"	t	typeref:struct:__anon13
+OS_SEM_DATA	./ucos/ucos_ii.h	/^} OS_SEM_DATA;$/;"	t	typeref:struct:__anon25
 OS_SEM_DEL_EN	./h/ucos/OS_CFG.H	83;"	d
 OS_SEM_DEL_EN	./ucos/os_cfg_r.h	122;"	d
 OS_SEM_EN	./h/ucos/OS_CFG.H	81;"	d
@@ -973,8 +982,8 @@ OS_STAT_SEM	./ucos/ucos_ii.h	62;"	d
 OS_STAT_SUSPEND	./h/ucos/uCOS_II.H	55;"	d
 OS_STAT_SUSPEND	./ucos/ucos_ii.h	65;"	d
 OS_STK	./h/ucos/OS_CPU.H	/^typedef INT32U         OS_STK;$/;"	t
-OS_STK_DATA	./h/ucos/uCOS_II.H	/^} OS_STK_DATA;$/;"	t	typeref:struct:__anon13
-OS_STK_DATA	./ucos/ucos_ii.h	/^} OS_STK_DATA;$/;"	t	typeref:struct:__anon25
+OS_STK_DATA	./h/ucos/uCOS_II.H	/^} OS_STK_DATA;$/;"	t	typeref:struct:__anon14
+OS_STK_DATA	./ucos/ucos_ii.h	/^} OS_STK_DATA;$/;"	t	typeref:struct:__anon26
 OS_STK_GROWTH	./h/ucos/OS_CPU.H	74;"	d
 OS_Sched	./h/ucos/uCOS_II.H	/^void          OS_Sched(void);$/;"	p	signature:(void)
 OS_Sched	./ucos/os_core.c	/^void  OS_Sched (void)$/;"	f	signature:(void)
@@ -1093,24 +1102,24 @@ SRC_WIDTH	./h/dma.h	27;"	d
 STX	./bsp/xmodem.c	54;"	d	file:
 SetGPIOFunction	./bsp/gpio.c	/^void SetGPIOFunction(INT32U GPIO, INT32U functionCode)$/;"	f	signature:(INT32U GPIO, INT32U functionCode)
 SetGPIOFunction	./h/gpio.h	/^void SetGPIOFunction(INT32U GPIO, INT32U functionCode);$/;"	p	signature:(INT32U GPIO, INT32U functionCode)
-SrcAddr	./h/dma.h	/^INT32U  SrcAddr;$/;"	m	struct:__anon14	access:public
+SrcAddr	./h/dma.h	/^INT32U  SrcAddr;$/;"	m	struct:__anon15	access:public
 TDMODE	./h/dma.h	34;"	d
-TI	./h/dma.h	/^INT32U  TI;$/;"	m	struct:__anon14	access:public
+TI	./h/dma.h	/^INT32U  TI;$/;"	m	struct:__anon15	access:public
 TIMER_H_	./h/timer.h	3;"	d
 TIMER_REGS	./h/regs.h	/^} TIMER_REGS;$/;"	t	typeref:struct:_BCM2835_TIMER_REGS
 TRUE	./h/ucos/uCOS_II.H	23;"	d
 TRUE	./ucos/ucos_ii.h	33;"	d
-TransLen	./h/dma.h	/^INT32U  TransLen;$/;"	m	struct:__anon14	access:public
-TwoDStride	./h/dma.h	/^INT32U  TwoDStride;$/;"	m	struct:__anon14	access:public
+TransLen	./h/dma.h	/^INT32U  TransLen;$/;"	m	struct:__anon15	access:public
+TwoDStride	./h/dma.h	/^INT32U  TwoDStride;$/;"	m	struct:__anon15	access:public
 UART_H_	./h/uart.h	3;"	d
-UART_MEMORY_SIZE	./h/uart.h	21;"	d
+UART_MEMORY_SIZE	./h/uart.h	22;"	d
 UART_MEMORY_STATIC	./bsp/uart.c	/^static INT8U UART_MEMORY_STATIC[2048];$/;"	v	file:
-UART_MEM_BLK_NUM	./h/uart.h	23;"	d
-UART_MEM_BLK_SIZE	./h/uart.h	22;"	d
-UART_RECV_FIFO_SIZE	./h/uart.h	17;"	d
-UART_TRANS_FIFO_SIZE	./h/uart.h	18;"	d
-UART_TRANS_INTR_CONTINUE	./h/uart.h	25;"	d
-UART_TRANS_INTR_END	./h/uart.h	26;"	d
+UART_MEM_BLK_NUM	./h/uart.h	24;"	d
+UART_MEM_BLK_SIZE	./h/uart.h	23;"	d
+UART_RECV_FIFO_SIZE	./h/uart.h	18;"	d
+UART_TRANS_FIFO_SIZE	./h/uart.h	19;"	d
+UART_TRANS_INTR_CONTINUE	./h/uart.h	26;"	d
+UART_TRANS_INTR_END	./h/uart.h	27;"	d
 UBYTE	./h/ucos/OS_CPU.H	27;"	d
 ULONG	./h/ucos/OS_CPU.H	31;"	d
 UWORD	./h/ucos/OS_CPU.H	29;"	d
@@ -1130,6 +1139,7 @@ _BCM2835_TIMER_REGS::MIS	./h/regs.h	/^	unsigned long MIS;$/;"	m	struct:_BCM2835_
 _BCM2835_TIMER_REGS::RIS	./h/regs.h	/^	unsigned long RIS;$/;"	m	struct:_BCM2835_TIMER_REGS	access:public
 _BCM2835_TIMER_REGS::RLD	./h/regs.h	/^	unsigned long RLD;$/;"	m	struct:_BCM2835_TIMER_REGS	access:public
 _BCM2835_TIMER_REGS::VAL	./h/regs.h	/^	unsigned long VAL;$/;"	m	struct:_BCM2835_TIMER_REGS	access:public
+_DEVICE_H_	./h/device.h	2;"	d
 _DMA_H_	./h/dma.h	2;"	d
 _FIFO_H_	./h/fifo.h	2;"	d
 _GPIO_H_	./h/gpio.h	2;"	d
@@ -1137,75 +1147,81 @@ _INTERRUPTS_H_	./h/interrupts.h	3;"	d
 _OS_CFG_H_	./h/ucos/OS_CFG.H	8;"	d
 _XMODEM_H_	./h/xmodem.h	4;"	d
 __UCOSII_H_	./h/ucos/uCOS_II.H	8;"	d
-__anon10::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon10	access:public
-__anon10::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon10	access:public
-__anon10::OSMutexPIP	./h/ucos/uCOS_II.H	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon10	access:public
-__anon10::OSOwnerPrio	./h/ucos/uCOS_II.H	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon10	access:public
-__anon10::OSValue	./h/ucos/uCOS_II.H	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon10	access:public
-__anon11::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon11	access:public
-__anon11::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon11	access:public
-__anon11::OSMsg	./h/ucos/uCOS_II.H	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon11	access:public
-__anon11::OSNMsgs	./h/ucos/uCOS_II.H	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon11	access:public
-__anon11::OSQSize	./h/ucos/uCOS_II.H	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon11	access:public
-__anon12::OSCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon12	access:public
-__anon12::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon12	access:public
-__anon12::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon12	access:public
-__anon13::OSFree	./h/ucos/uCOS_II.H	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon13	access:public
-__anon13::OSUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon13	access:public
-__anon14::DesAddr	./h/dma.h	/^INT32U  DesAddr;$/;"	m	struct:__anon14	access:public
-__anon14::NextCBAddr	./h/dma.h	/^INT32U  NextCBAddr;$/;"	m	struct:__anon14	access:public
-__anon14::SrcAddr	./h/dma.h	/^INT32U  SrcAddr;$/;"	m	struct:__anon14	access:public
-__anon14::TI	./h/dma.h	/^INT32U  TI;$/;"	m	struct:__anon14	access:public
-__anon14::TransLen	./h/dma.h	/^INT32U  TransLen;$/;"	m	struct:__anon14	access:public
-__anon14::TwoDStride	./h/dma.h	/^INT32U  TwoDStride;$/;"	m	struct:__anon14	access:public
-__anon15::head	./h/fifo.h	/^    INT32U head;$/;"	m	struct:__anon15	access:public
-__anon15::pFifo	./h/fifo.h	/^    INT8U* pFifo;$/;"	m	struct:__anon15	access:public
-__anon15::size	./h/fifo.h	/^    INT32U size;$/;"	m	struct:__anon15	access:public
-__anon15::tail	./h/fifo.h	/^    INT32U tail;$/;"	m	struct:__anon15	access:public
-__anon16::OSEventCnt	./ucos/ucos_ii.h	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon16	access:public
-__anon16::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon16	access:public
-__anon16::OSEventPtr	./ucos/ucos_ii.h	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon16	access:public
-__anon16::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon16	access:public
-__anon16::OSEventType	./ucos/ucos_ii.h	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon16	access:public
-__anon17::OSFlagFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon17	access:public
-__anon17::OSFlagType	./ucos/ucos_ii.h	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon17	access:public
-__anon17::OSFlagWaitList	./ucos/ucos_ii.h	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon17	access:public
-__anon18::OSFlagNodeFlagGrp	./ucos/ucos_ii.h	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon18	access:public
-__anon18::OSFlagNodeFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon18	access:public
-__anon18::OSFlagNodeNext	./ucos/ucos_ii.h	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon18	access:public
-__anon18::OSFlagNodePrev	./ucos/ucos_ii.h	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon18	access:public
-__anon18::OSFlagNodeTCB	./ucos/ucos_ii.h	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon18	access:public
-__anon18::OSFlagNodeWaitType	./ucos/ucos_ii.h	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon18	access:public
-__anon19::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon19	access:public
-__anon19::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon19	access:public
-__anon19::OSMsg	./ucos/ucos_ii.h	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon19	access:public
+__anon10::OSAddr	./h/ucos/uCOS_II.H	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon10	access:public
+__anon10::OSBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon10	access:public
+__anon10::OSFreeList	./h/ucos/uCOS_II.H	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon10	access:public
+__anon10::OSNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon10	access:public
+__anon10::OSNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon10	access:public
+__anon10::OSNUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon10	access:public
+__anon11::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon11	access:public
+__anon11::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon11	access:public
+__anon11::OSMutexPIP	./h/ucos/uCOS_II.H	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon11	access:public
+__anon11::OSOwnerPrio	./h/ucos/uCOS_II.H	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon11	access:public
+__anon11::OSValue	./h/ucos/uCOS_II.H	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon11	access:public
+__anon12::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon12	access:public
+__anon12::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon12	access:public
+__anon12::OSMsg	./h/ucos/uCOS_II.H	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon12	access:public
+__anon12::OSNMsgs	./h/ucos/uCOS_II.H	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon12	access:public
+__anon12::OSQSize	./h/ucos/uCOS_II.H	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon12	access:public
+__anon13::OSCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon13	access:public
+__anon13::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon13	access:public
+__anon13::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon13	access:public
+__anon14::OSFree	./h/ucos/uCOS_II.H	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon14	access:public
+__anon14::OSUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon14	access:public
+__anon15::DesAddr	./h/dma.h	/^INT32U  DesAddr;$/;"	m	struct:__anon15	access:public
+__anon15::NextCBAddr	./h/dma.h	/^INT32U  NextCBAddr;$/;"	m	struct:__anon15	access:public
+__anon15::SrcAddr	./h/dma.h	/^INT32U  SrcAddr;$/;"	m	struct:__anon15	access:public
+__anon15::TI	./h/dma.h	/^INT32U  TI;$/;"	m	struct:__anon15	access:public
+__anon15::TransLen	./h/dma.h	/^INT32U  TransLen;$/;"	m	struct:__anon15	access:public
+__anon15::TwoDStride	./h/dma.h	/^INT32U  TwoDStride;$/;"	m	struct:__anon15	access:public
+__anon16::head	./h/fifo.h	/^    INT32U head;$/;"	m	struct:__anon16	access:public
+__anon16::pFifo	./h/fifo.h	/^    INT8U* pFifo;$/;"	m	struct:__anon16	access:public
+__anon16::size	./h/fifo.h	/^    INT32U size;$/;"	m	struct:__anon16	access:public
+__anon16::tail	./h/fifo.h	/^    INT32U tail;$/;"	m	struct:__anon16	access:public
+__anon17::OSEventCnt	./ucos/ucos_ii.h	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon17	access:public
+__anon17::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon17	access:public
+__anon17::OSEventPtr	./ucos/ucos_ii.h	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon17	access:public
+__anon17::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon17	access:public
+__anon17::OSEventType	./ucos/ucos_ii.h	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon17	access:public
+__anon18::OSFlagFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon18	access:public
+__anon18::OSFlagType	./ucos/ucos_ii.h	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon18	access:public
+__anon18::OSFlagWaitList	./ucos/ucos_ii.h	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon18	access:public
+__anon19::OSFlagNodeFlagGrp	./ucos/ucos_ii.h	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon19	access:public
+__anon19::OSFlagNodeFlags	./ucos/ucos_ii.h	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon19	access:public
+__anon19::OSFlagNodeNext	./ucos/ucos_ii.h	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon19	access:public
+__anon19::OSFlagNodePrev	./ucos/ucos_ii.h	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon19	access:public
+__anon19::OSFlagNodeTCB	./ucos/ucos_ii.h	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon19	access:public
+__anon19::OSFlagNodeWaitType	./ucos/ucos_ii.h	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon19	access:public
 __anon1::uart_all_reg	./h/uart.h	/^    INT32U uart_all_reg[12];$/;"	m	struct:__anon1	access:public
-__anon20::OSMemAddr	./ucos/ucos_ii.h	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon20	access:public
-__anon20::OSMemBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon20	access:public
-__anon20::OSMemFreeList	./ucos/ucos_ii.h	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon20	access:public
-__anon20::OSMemNBlks	./ucos/ucos_ii.h	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon20	access:public
-__anon20::OSMemNFree	./ucos/ucos_ii.h	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon20	access:public
-__anon21::OSAddr	./ucos/ucos_ii.h	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon21	access:public
-__anon21::OSBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon21	access:public
-__anon21::OSFreeList	./ucos/ucos_ii.h	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon21	access:public
-__anon21::OSNBlks	./ucos/ucos_ii.h	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon21	access:public
-__anon21::OSNFree	./ucos/ucos_ii.h	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon21	access:public
-__anon21::OSNUsed	./ucos/ucos_ii.h	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon21	access:public
-__anon22::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon22	access:public
-__anon22::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon22	access:public
-__anon22::OSMutexPIP	./ucos/ucos_ii.h	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon22	access:public
-__anon22::OSOwnerPrio	./ucos/ucos_ii.h	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon22	access:public
-__anon22::OSValue	./ucos/ucos_ii.h	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon22	access:public
-__anon23::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon23	access:public
-__anon23::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon23	access:public
-__anon23::OSMsg	./ucos/ucos_ii.h	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon23	access:public
-__anon23::OSNMsgs	./ucos/ucos_ii.h	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon23	access:public
-__anon23::OSQSize	./ucos/ucos_ii.h	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon23	access:public
-__anon24::OSCnt	./ucos/ucos_ii.h	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon24	access:public
-__anon24::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon24	access:public
-__anon24::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon24	access:public
-__anon25::OSFree	./ucos/ucos_ii.h	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon25	access:public
-__anon25::OSUsed	./ucos/ucos_ii.h	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon25	access:public
+__anon20::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon20	access:public
+__anon20::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon20	access:public
+__anon20::OSMsg	./ucos/ucos_ii.h	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon20	access:public
+__anon21::OSMemAddr	./ucos/ucos_ii.h	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon21	access:public
+__anon21::OSMemBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon21	access:public
+__anon21::OSMemFreeList	./ucos/ucos_ii.h	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon21	access:public
+__anon21::OSMemNBlks	./ucos/ucos_ii.h	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon21	access:public
+__anon21::OSMemNFree	./ucos/ucos_ii.h	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon21	access:public
+__anon22::OSAddr	./ucos/ucos_ii.h	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon22	access:public
+__anon22::OSBlkSize	./ucos/ucos_ii.h	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon22	access:public
+__anon22::OSFreeList	./ucos/ucos_ii.h	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon22	access:public
+__anon22::OSNBlks	./ucos/ucos_ii.h	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon22	access:public
+__anon22::OSNFree	./ucos/ucos_ii.h	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon22	access:public
+__anon22::OSNUsed	./ucos/ucos_ii.h	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon22	access:public
+__anon23::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon23	access:public
+__anon23::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon23	access:public
+__anon23::OSMutexPIP	./ucos/ucos_ii.h	/^    INT8U   OSMutexPIP;                     \/* Priority Inheritance Priority or 0xFF if no owner       *\/$/;"	m	struct:__anon23	access:public
+__anon23::OSOwnerPrio	./ucos/ucos_ii.h	/^    INT8U   OSOwnerPrio;                    \/* Mutex owner's task priority or 0xFF if no owner         *\/$/;"	m	struct:__anon23	access:public
+__anon23::OSValue	./ucos/ucos_ii.h	/^    INT8U   OSValue;                        \/* Mutex value (0 = used, 1 = available)                   *\/$/;"	m	struct:__anon23	access:public
+__anon24::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U          OSEventGrp;          \/* Group corresponding to tasks waiting for event to occur     *\/$/;"	m	struct:__anon24	access:public
+__anon24::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U          OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur         *\/$/;"	m	struct:__anon24	access:public
+__anon24::OSMsg	./ucos/ucos_ii.h	/^    void          *OSMsg;               \/* Pointer to next message to be extracted from queue          *\/$/;"	m	struct:__anon24	access:public
+__anon24::OSNMsgs	./ucos/ucos_ii.h	/^    INT16U         OSNMsgs;             \/* Number of messages in message queue                         *\/$/;"	m	struct:__anon24	access:public
+__anon24::OSQSize	./ucos/ucos_ii.h	/^    INT16U         OSQSize;             \/* Size of message queue                                       *\/$/;"	m	struct:__anon24	access:public
+__anon25::OSCnt	./ucos/ucos_ii.h	/^    INT16U  OSCnt;                          \/* Semaphore count                                         *\/$/;"	m	struct:__anon25	access:public
+__anon25::OSEventGrp	./ucos/ucos_ii.h	/^    INT8U   OSEventGrp;                     \/* Group corresponding to tasks waiting for event to occur *\/$/;"	m	struct:__anon25	access:public
+__anon25::OSEventTbl	./ucos/ucos_ii.h	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE];  \/* List of tasks waiting for event to occur                *\/$/;"	m	struct:__anon25	access:public
+__anon26::OSFree	./ucos/ucos_ii.h	/^    INT32U  OSFree;                    \/* Number of free bytes on the stack                            *\/$/;"	m	struct:__anon26	access:public
+__anon26::OSUsed	./ucos/ucos_ii.h	/^    INT32U  OSUsed;                    \/* Number of bytes used on the stack                            *\/$/;"	m	struct:__anon26	access:public
 __anon2::Disable1	./h/regs.h	/^	unsigned long	Disable1;$/;"	m	struct:__anon2	access:public
 __anon2::Disable2	./h/regs.h	/^	unsigned long	Disable2;$/;"	m	struct:__anon2	access:public
 __anon2::DisableBasic	./h/regs.h	/^	unsigned long	DisableBasic;$/;"	m	struct:__anon2	access:public
@@ -1216,42 +1232,43 @@ __anon2::FIQCtrl	./h/regs.h	/^	unsigned long	FIQCtrl;$/;"	m	struct:__anon2	acces
 __anon2::IRQBasic	./h/regs.h	/^	unsigned long	IRQBasic;	\/\/ Pending 0$/;"	m	struct:__anon2	access:public
 __anon2::Pending1	./h/regs.h	/^	unsigned long	Pending1;$/;"	m	struct:__anon2	access:public
 __anon2::Pending2	./h/regs.h	/^	unsigned long	Pending2;$/;"	m	struct:__anon2	access:public
-__anon3::pParam	./h/interrupts.h	/^	void 				   *pParam;				\/\/\/< A special parameter that the use can pass to the IRQ.$/;"	m	struct:__anon3	access:public
-__anon3::pfnHandler	./h/interrupts.h	/^	FN_INTERRUPT_HANDLER 	pfnHandler;			\/\/\/< Function that handles this IRQn$/;"	m	struct:__anon3	access:public
-__anon4::OSEventCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon4	access:public
-__anon4::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon4	access:public
-__anon4::OSEventPtr	./h/ucos/uCOS_II.H	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon4	access:public
-__anon4::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon4	access:public
-__anon4::OSEventType	./h/ucos/uCOS_II.H	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon4	access:public
-__anon5::OSFlagFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon5	access:public
-__anon5::OSFlagType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon5	access:public
-__anon5::OSFlagWaitList	./h/ucos/uCOS_II.H	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon5	access:public
-__anon6::OSFlagNodeFlagGrp	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon6	access:public
-__anon6::OSFlagNodeFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon6	access:public
-__anon6::OSFlagNodeNext	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon6	access:public
-__anon6::OSFlagNodePrev	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon6	access:public
-__anon6::OSFlagNodeTCB	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon6	access:public
-__anon6::OSFlagNodeWaitType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon6	access:public
-__anon7::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon7	access:public
-__anon7::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon7	access:public
-__anon7::OSMsg	./h/ucos/uCOS_II.H	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon7	access:public
-__anon8::OSMemAddr	./h/ucos/uCOS_II.H	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon8	access:public
-__anon8::OSMemBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon8	access:public
-__anon8::OSMemFreeList	./h/ucos/uCOS_II.H	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon8	access:public
-__anon8::OSMemNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon8	access:public
-__anon8::OSMemNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon8	access:public
-__anon9::OSAddr	./h/ucos/uCOS_II.H	/^    void   *OSAddr;                    \/* Pointer to the beginning address of the memory partition     *\/$/;"	m	struct:__anon9	access:public
-__anon9::OSBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSBlkSize;                 \/* Size (in bytes) of each memory block                         *\/$/;"	m	struct:__anon9	access:public
-__anon9::OSFreeList	./h/ucos/uCOS_II.H	/^    void   *OSFreeList;                \/* Pointer to the beginning of the free list of memory blocks   *\/$/;"	m	struct:__anon9	access:public
-__anon9::OSNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSNBlks;                   \/* Total number of blocks in the partition                      *\/$/;"	m	struct:__anon9	access:public
-__anon9::OSNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSNFree;                   \/* Number of memory blocks free                                 *\/$/;"	m	struct:__anon9	access:public
-__anon9::OSNUsed	./h/ucos/uCOS_II.H	/^    INT32U  OSNUsed;                   \/* Number of memory blocks used                                 *\/$/;"	m	struct:__anon9	access:public
+__anon3::close	./h/device.h	/^    INT32U ( *close ) ( void );       \/\/ Device number$/;"	m	struct:__anon3	access:public
+__anon3::dev_name	./h/device.h	/^    INT8U* dev_name;                        \/\/ Store device's name$/;"	m	struct:__anon3	access:public
+__anon3::isOpen	./h/device.h	/^    INT32U isOpen;                          \/\/ dev open status$/;"	m	struct:__anon3	access:public
+__anon3::open	./h/device.h	/^    INT32U ( *open ) ( $/;"	m	struct:__anon3	access:public
+__anon3::read	./h/device.h	/^    INT32U ( *read ) ( $/;"	m	struct:__anon3	access:public
+__anon3::write	./h/device.h	/^    INT32U ( *write )($/;"	m	struct:__anon3	access:public
+__anon4::pParam	./h/interrupts.h	/^	void 				   *pParam;				\/\/\/< A special parameter that the use can pass to the IRQ.$/;"	m	struct:__anon4	access:public
+__anon4::pfnHandler	./h/interrupts.h	/^	FN_INTERRUPT_HANDLER 	pfnHandler;			\/\/\/< Function that handles this IRQn$/;"	m	struct:__anon4	access:public
+__anon5::OSEventCnt	./h/ucos/uCOS_II.H	/^    INT16U  OSEventCnt;                    \/* Semaphore Count (not used if other EVENT type)           *\/$/;"	m	struct:__anon5	access:public
+__anon5::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon5	access:public
+__anon5::OSEventPtr	./h/ucos/uCOS_II.H	/^    void   *OSEventPtr;                    \/* Pointer to message or queue structure                    *\/$/;"	m	struct:__anon5	access:public
+__anon5::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon5	access:public
+__anon5::OSEventType	./h/ucos/uCOS_II.H	/^    INT8U   OSEventType;                   \/* Type of event control block (see OS_EVENT_TYPE_???)      *\/$/;"	m	struct:__anon5	access:public
+__anon6::OSFlagFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagFlags;              \/* 8, 16 or 32 bit flags                                   *\/$/;"	m	struct:__anon6	access:public
+__anon6::OSFlagType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagType;               \/* Should be set to OS_EVENT_TYPE_FLAG                     *\/$/;"	m	struct:__anon6	access:public
+__anon6::OSFlagWaitList	./h/ucos/uCOS_II.H	/^    void         *OSFlagWaitList;           \/* Pointer to first NODE of task waiting on event flag     *\/$/;"	m	struct:__anon6	access:public
+__anon7::OSFlagNodeFlagGrp	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeFlagGrp;        \/* Pointer to Event Flag Group                             *\/  $/;"	m	struct:__anon7	access:public
+__anon7::OSFlagNodeFlags	./h/ucos/uCOS_II.H	/^    OS_FLAGS      OSFlagNodeFlags;          \/* Event flag to wait on                                   *\/  $/;"	m	struct:__anon7	access:public
+__anon7::OSFlagNodeNext	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeNext;           \/* Pointer to next     NODE in wait list                   *\/$/;"	m	struct:__anon7	access:public
+__anon7::OSFlagNodePrev	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodePrev;           \/* Pointer to previous NODE in wait list                   *\/$/;"	m	struct:__anon7	access:public
+__anon7::OSFlagNodeTCB	./h/ucos/uCOS_II.H	/^    void         *OSFlagNodeTCB;            \/* Pointer to TCB of waiting task                          *\/  $/;"	m	struct:__anon7	access:public
+__anon7::OSFlagNodeWaitType	./h/ucos/uCOS_II.H	/^    INT8U         OSFlagNodeWaitType;       \/* Type of wait:                                           *\/$/;"	m	struct:__anon7	access:public
+__anon8::OSEventGrp	./h/ucos/uCOS_II.H	/^    INT8U   OSEventGrp;                    \/* Group corresponding to tasks waiting for event to occur  *\/$/;"	m	struct:__anon8	access:public
+__anon8::OSEventTbl	./h/ucos/uCOS_II.H	/^    INT8U   OSEventTbl[OS_EVENT_TBL_SIZE]; \/* List of tasks waiting for event to occur                 *\/$/;"	m	struct:__anon8	access:public
+__anon8::OSMsg	./h/ucos/uCOS_II.H	/^    void   *OSMsg;                         \/* Pointer to message in mailbox                            *\/$/;"	m	struct:__anon8	access:public
+__anon9::OSMemAddr	./h/ucos/uCOS_II.H	/^    void   *OSMemAddr;                 \/* Pointer to beginning of memory partition                     *\/$/;"	m	struct:__anon9	access:public
+__anon9::OSMemBlkSize	./h/ucos/uCOS_II.H	/^    INT32U  OSMemBlkSize;              \/* Size (in bytes) of each block of memory                      *\/$/;"	m	struct:__anon9	access:public
+__anon9::OSMemFreeList	./h/ucos/uCOS_II.H	/^    void   *OSMemFreeList;             \/* Pointer to list of free memory blocks                        *\/$/;"	m	struct:__anon9	access:public
+__anon9::OSMemNBlks	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNBlks;                \/* Total number of blocks in this partition                     *\/$/;"	m	struct:__anon9	access:public
+__anon9::OSMemNFree	./h/ucos/uCOS_II.H	/^    INT32U  OSMemNFree;                \/* Number of memory blocks remaining in this partition          *\/$/;"	m	struct:__anon9	access:public
 _inbyte	./bsp/xmodem.c	51;"	d	file:
 _outbyte	./bsp/xmodem.c	50;"	d	file:
 _start	./init/startup.s	/^_start:$/;"	l
 aux_uart_isr	./bsp/uart.c	/^static void aux_uart_isr ( )$/;"	f	file:
 buf	./usrApp/userApp.c	/^static INT8U buf[1024];$/;"	v	file:
 check	./bsp/xmodem.c	/^static uint8_t check(int crc, const uint8_t *buf, int sz)$/;"	f	file:	signature:(int crc, const uint8_t *buf, int sz)
+close	./h/device.h	/^    INT32U ( *close ) ( void );       \/\/ Device number$/;"	m	struct:__anon3	access:public
 clz	./bsp/interrupts.c	23;"	d	file:
 counter	./bsp/uart.c	/^static INT32U counter = 0;$/;"	v	file:
 crc16_ccitt	./bsp/crc.c	/^uint16_t crc16_ccitt( const void *data, uint16_t number_of_bytes_in_data )$/;"	f	signature:( const void *data, uint16_t number_of_bytes_in_data )
@@ -1259,6 +1276,20 @@ crc8	./bsp/crc.c	/^uint8_t crc8( const uint8_t *data, uint16_t number_of_bytes_i
 data_abort	./bsp/cpu.c	/^void data_abort( void )$/;"	f	signature:( void )
 data_handler	./init/startup.s	/^data_handler:       .word data_abort$/;"	l
 dcache_clean	./bsp/dma.c	/^static inline void dcache_clean(void)$/;"	f	file:	signature:(void)
+devListAll	./bsp/device.c	/^dev_t devListAll [MAX_DEV];$/;"	v
+dev_close	./bsp/device.c	/^INT32U dev_close( INT32U dev )$/;"	f	signature:( INT32U dev )
+dev_close	./h/device.h	/^INT32U dev_close( INT32U dev );$/;"	p	signature:( INT32U dev )
+dev_init	./bsp/device.c	/^void dev_init( void )$/;"	f	signature:( void )
+dev_name	./h/device.h	/^    INT8U* dev_name;                        \/\/ Store device's name$/;"	m	struct:__anon3	access:public
+dev_open	./bsp/device.c	/^INT32U dev_open( INT8U* pDevName, $/;"	f	signature:( INT8U* pDevName, INT32U param, void* pParam )
+dev_open	./h/device.h	/^INT32U dev_open( INT8U* pDevName, $/;"	p	signature:( INT8U* pDevName, INT32U param, void* pParam )
+dev_read	./bsp/device.c	/^INT32U dev_read ( INT32U dev, $/;"	f	signature:( INT32U dev, INT8U* buf, INT32U size, INT32U param, void* pParam )
+dev_read	./h/device.h	/^INT32U dev_read ( INT32U dev, $/;"	p	signature:( INT32U dev, INT8U* buf, INT32U size, INT32U param, void* pParam )
+dev_reg	./bsp/device.c	/^INT32U dev_reg ( dev_t dev )           \/\/ Register DEV$/;"	f	signature:( dev_t dev )
+dev_reg	./h/device.h	/^INT32U dev_reg ( dev_t dev );           \/\/ Register DEV$/;"	p	signature:( dev_t dev )
+dev_t	./h/device.h	/^} dev_t;$/;"	t	typeref:struct:__anon3
+dev_write	./bsp/device.c	/^INT32U dev_write ( INT32U dev,$/;"	f	signature:( INT32U dev, INT8U* buf, INT32U size, INT32U param, void* pParam )
+dev_write	./h/device.h	/^INT32U dev_write ( INT32U dev,$/;"	p	signature:( INT32U dev, INT8U* buf, INT32U size, INT32U param, void* pParam )
 dma_channel_reg	./bsp/uart.c	/^static DMA_t dma_channel_reg = $/;"	v	file:
 dma_init	./bsp/dma.c	/^void dma_init( void )$/;"	f	signature:( void )
 dma_init	./h/dma.h	/^void dma_init();$/;"	p	signature:()
@@ -1280,7 +1311,7 @@ fiq_handler	./init/startup.s	/^fiq_handler:        .word fiq$/;"	l
 flushinput	./bsp/xmodem.c	/^static void flushinput(void)$/;"	f	file:	signature:(void)
 g_VectorTable	./bsp/interrupts.c	/^INTERRUPT_VECTOR g_VectorTable[BCM2835_INTC_TOTAL_IRQ];$/;"	v
 hang	./init/startup.s	/^hang:$/;"	l
-head	./h/fifo.h	/^    INT32U head;$/;"	m	struct:__anon15	access:public
+head	./h/fifo.h	/^    INT32U head;$/;"	m	struct:__anon16	access:public
 hexstring	./bsp/uart.c	/^void hexstring ( unsigned int d )$/;"	f	signature:( unsigned int d )
 hexstring	./h/uart.h	/^void hexstring ( unsigned int );$/;"	p	signature:( unsigned int )
 hexstring_showstop	./bsp/uart.c	/^void hexstring_showstop ( unsigned int d )$/;"	f	signature:( unsigned int d )
@@ -1299,10 +1330,12 @@ intcRegs	./h/regs.h	/^static volatile INTC_REGS * const intcRegs = (INTC_REGS *)
 irqDisable	./bsp/interrupts.c	/^static void irqDisable() {$/;"	f	file:
 irqEnable	./bsp/interrupts.c	/^static void irqEnable() {$/;"	f	file:
 irq_handler	./init/startup.s	/^irq_handler:        .word OS_CPU_IRQ_ISR;@irqHandler to be modified$/;"	l
+isOpen	./h/device.h	/^    INT32U isOpen;                          \/\/ dev open status$/;"	m	struct:__anon3	access:public
 main	./bsp/xmodem.c	/^int main(void)$/;"	f	signature:(void)
 main	./usrApp/main.c	/^void main()$/;"	f
 memcpy	./h/ucos/includes.h	/^extern void *memcpy(void *destination,const void *source,unsigned int size);$/;"	p	signature:(void *destination,const void *source,unsigned int size)
 memset	./h/ucos/includes.h	/^extern void *memset(void * m,int c,unsigned int size);$/;"	p	signature:(void * m,int c,unsigned int size)
+open	./h/device.h	/^    INT32U ( *open ) ( $/;"	m	struct:__anon3	access:public
 os_q	./h/ucos/uCOS_II.H	/^typedef struct os_q {                   \/* QUEUE CONTROL BLOCK                                         *\/$/;"	s
 os_q	./ucos/ucos_ii.h	/^typedef struct os_q {                   \/* QUEUE CONTROL BLOCK                                         *\/$/;"	s
 os_q::OSQEnd	./h/ucos/uCOS_II.H	/^    void         **OSQEnd;              \/* Pointer to end   of queue data                              *\/$/;"	m	struct:os_q	access:public
@@ -1361,23 +1394,24 @@ os_tcb::OSTCBX	./h/ucos/uCOS_II.H	/^    INT8U          OSTCBX;             \/* B
 os_tcb::OSTCBX	./ucos/ucos_ii.h	/^    INT8U          OSTCBX;             \/* Bit position in group  corresponding to task priority (0..7) *\/$/;"	m	struct:os_tcb	access:public
 os_tcb::OSTCBY	./h/ucos/uCOS_II.H	/^    INT8U          OSTCBY;             \/* Index into ready table corresponding to task priority        *\/$/;"	m	struct:os_tcb	access:public
 os_tcb::OSTCBY	./ucos/ucos_ii.h	/^    INT8U          OSTCBY;             \/* Index into ready table corresponding to task priority        *\/$/;"	m	struct:os_tcb	access:public
-pFifo	./h/fifo.h	/^    INT8U* pFifo;$/;"	m	struct:__anon15	access:public
-pParam	./h/interrupts.h	/^	void 				   *pParam;				\/\/\/< A special parameter that the use can pass to the IRQ.$/;"	m	struct:__anon3	access:public
-pfnHandler	./h/interrupts.h	/^	FN_INTERRUPT_HANDLER 	pfnHandler;			\/\/\/< Function that handles this IRQn$/;"	m	struct:__anon3	access:public
+pFifo	./h/fifo.h	/^    INT8U* pFifo;$/;"	m	struct:__anon16	access:public
+pParam	./h/interrupts.h	/^	void 				   *pParam;				\/\/\/< A special parameter that the use can pass to the IRQ.$/;"	m	struct:__anon4	access:public
+pfnHandler	./h/interrupts.h	/^	FN_INTERRUPT_HANDLER 	pfnHandler;			\/\/\/< Function that handles this IRQn$/;"	m	struct:__anon4	access:public
 portTIMER_BASE	./h/regs.h	43;"	d
 prefetch_abort	./bsp/cpu.c	/^void prefetch_abort( void )$/;"	f	signature:( void )
 prefetch_handler	./init/startup.s	/^prefetch_handler:   .word prefetch_abort$/;"	l
 rByte	./bsp/uart.c	/^static INT8U rByte;$/;"	v	file:
+read	./h/device.h	/^    INT32U ( *read ) ( $/;"	m	struct:__anon3	access:public
 reset	./init/startup.s	/^reset:$/;"	l
 reset_handler	./init/startup.s	/^reset_handler:      .word reset$/;"	l
 showstop	./bsp/showstop.c	/^void showstop( INT32U ssCode )$/;"	f	signature:( INT32U ssCode )
 showstop	./h/showstop.h	/^void showstop( INT32U ssCode );$/;"	p	signature:( INT32U ssCode )
-size	./h/fifo.h	/^    INT32U size;$/;"	m	struct:__anon15	access:public
+size	./h/fifo.h	/^    INT32U size;$/;"	m	struct:__anon16	access:public
 stubHandler	./bsp/interrupts.c	/^static void stubHandler(int nIRQ, void *pParam) {$/;"	f	file:	signature:(int nIRQ, void *pParam)
 swi	./bsp/cpu.c	/^void swi( void )$/;"	f	signature:( void )
 swi_handler	./init/startup.s	/^swi_handler:        .word swi;@to be modified$/;"	l
 tByte	./bsp/uart.c	/^static INT8U tByte;$/;"	v	file:
-tail	./h/fifo.h	/^    INT32U tail;$/;"	m	struct:__anon15	access:public
+tail	./h/fifo.h	/^    INT32U tail;$/;"	m	struct:__anon16	access:public
 tickISR	./bsp/timer.c	/^static void tickISR()$/;"	f	file:
 timerRegs	./h/regs.h	/^static volatile TIMER_REGS * const timerRegs = (TIMER_REGS *) (portTIMER_BASE);$/;"	v
 timer_init	./bsp/timer.c	/^void timer_init( void )$/;"	f	signature:( void )
@@ -1388,14 +1422,18 @@ uartTransFifo	./bsp/uart.c	/^static Fifo_t uartTransFifo;$/;"	v	file:
 uartTransIntrFlag	./bsp/uart.c	/^static INT32U uartTransIntrFlag;$/;"	v	file:
 uartTransmit	./bsp/uart.c	/^INT32U uartTransmit( INT32U uartDev, $/;"	f	signature:( INT32U uartDev, INT8U * transBuf, INT32U transNum, INT32U timeout )
 uart_all_reg	./h/uart.h	/^    INT32U uart_all_reg[12];$/;"	m	struct:__anon1	access:public
-uart_close	./bsp/uart.c	/^INT32U uart_close( INT32U uartNum )$/;"	f	signature:( INT32U uartNum )
+uart_close	./bsp/uart.c	/^INT32U uart_close( void )$/;"	f	signature:( void )
+uart_close	./h/uart.h	/^INT32U uart_close( void );$/;"	p	signature:( void )
 uart_flush	./bsp/uart.c	/^void uart_flush ( void )$/;"	f	signature:( void )
 uart_flush	./h/uart.h	/^void uart_flush ( void );$/;"	p	signature:( void )
 uart_init	./bsp/uart.c	/^void uart_init ( void )$/;"	f	signature:( void )
 uart_init	./h/uart.h	/^void uart_init ( void );$/;"	p	signature:( void )
 uart_lcr	./bsp/uart.c	/^unsigned int uart_lcr ( void )$/;"	f	signature:( void )
 uart_lcr	./h/uart.h	/^unsigned int uart_lcr ( void );$/;"	p	signature:( void )
-uart_open	./bsp/uart.c	/^INT32U uart_open( INT32U uartNum )$/;"	f	signature:( INT32U uartNum )
+uart_open	./bsp/uart.c	/^INT32U uart_open( INT32U param, void* pParam )$/;"	f	signature:( INT32U param, void* pParam )
+uart_open	./h/uart.h	/^INT32U uart_open( INT32U param, void* pParam );$/;"	p	signature:( INT32U param, void* pParam )
+uart_read	./bsp/uart.c	/^INT32U uart_read ( INT8U * recBuf, $/;"	f	signature:( INT8U * recBuf, INT32U num, INT32U param, void* pParam )
+uart_read	./h/uart.h	/^INT32U uart_read ( INT8U * recBuf, $/;"	p	signature:( INT8U * recBuf, INT32U num, INT32U param, void* pParam )
 uart_recv	./bsp/uart.c	/^unsigned int uart_recv ( void )$/;"	f	signature:( void )
 uart_recv	./h/uart.h	/^unsigned int uart_recv ( void );$/;"	p	signature:( void )
 uart_reg_t	./h/uart.h	/^} uart_reg_t;$/;"	t	typeref:struct:__anon1
@@ -1407,6 +1445,8 @@ uart_string_dma	./bsp/uart.c	/^void uart_string_dma(char* s)$/;"	f	signature:(ch
 uart_string_dma	./h/uart.h	/^void uart_string_dma(char* s);$/;"	p	signature:(char* s)
 uart_string_showstop	./bsp/uart.c	/^void uart_string_showstop (char* s)$/;"	f	signature:(char* s)
 uart_string_showstop	./h/uart.h	/^void uart_string_showstop (char* s);$/;"	p	signature:(char* s)
+uart_write	./bsp/uart.c	/^INT32U uart_write (  INT8U * transBuf, $/;"	f	signature:( INT8U * transBuf, INT32U transNum, INT32U param, void* pParam)
+uart_write	./h/uart.h	/^INT32U uart_write (  INT8U * transBuf, $/;"	p	signature:( INT8U * transBuf, INT32U transNum, INT32U param, void* pParam)
 uint16_t	./bsp/crc.c	/^typedef INT16U uint16_t; $/;"	t	file:
 uint16_t	./bsp/xmodem.c	/^typedef INT16U uint16_t; $/;"	t	file:
 uint16_t	./h/xmodem.h	/^typedef INT16U uint16_t; $/;"	t
@@ -1423,6 +1463,7 @@ userApp2	./usrApp/main.c	/^extern void userApp2(void *);$/;"	p	file:	signature:(
 userApp2	./usrApp/userApp.c	/^void userApp2(void * args)$/;"	f	signature:(void * args)
 userAppTaskStk1	./usrApp/main.c	/^OS_STK  userAppTaskStk1[4000];$/;"	v
 userAppTaskStk2	./usrApp/main.c	/^OS_STK  userAppTaskStk2[4000];$/;"	v
+write	./h/device.h	/^    INT32U ( *write )($/;"	m	struct:__anon3	access:public
 xmodemReceive	./bsp/xmodem.c	/^int8_t xmodemReceive(uint8_t *dest, uint16_t dest_size)$/;"	f	signature:(uint8_t *dest, uint16_t dest_size)
 xmodemReceive	./h/xmodem.h	/^int8_t xmodemReceive(uint8_t *dest, uint16_t dest_size);$/;"	p	signature:(uint8_t *dest, uint16_t dest_size)
 xmodemTransmit	./bsp/xmodem.c	/^int8_t xmodemTransmit(uint8_t *src, uint16_t src_size)$/;"	f	signature:(uint8_t *src, uint16_t src_size)

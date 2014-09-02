@@ -22,6 +22,7 @@ OBJS += build/cpu.o
 OBJS += build/xmodem.o 
 OBJS += build/crc.o
 OBJS += build/gpio.o
+OBJS += build/device.o
 
 OBJS += build/OS_Cpu_a.o
 OBJS += build/OS_Cpu_c.o

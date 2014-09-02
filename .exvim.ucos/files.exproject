@@ -4,6 +4,7 @@
  |-[F]bsp {
  | |-cpu.c
  | |-crc.c
+ | |-device.c
  | |-dma.c
  | |-fifo.c
  | |-gpio.c
@@ -16,6 +17,7 @@
  |-[F]build {
  | |-cpu.o
  | |-crc.o
+ | |-device.o
  | |-dma.o
  | |-fifo.o
  | |-gpio.o
@@ -40,6 +42,7 @@
  | | |-uCOS_II.H }
  | |
  | |-cpu.h
+ | |-device.h
  | |-dma.h
  | |-fifo.h
  | |-gpio.h
@@ -84,6 +87,7 @@
  |
  |-grep
  |-kernel.img
+ |-kernel.sym
  |-makefile
  |-ncscope.out
  |-raspberrypi.ld

@@ -10,50 +10,27 @@ void userApp2(void * args)
     INT32U forNum = 0;
     INT32U rc = 0;
     Fifo_t fifo;
-    //INT8U buf[1024];
-    //fifoCreate( &fifo, TMP_BUFFER, 1023 );
     
     INT8U sentence[] = "App2 Started\n\r";
 
-    uartTransmit( 0, sentence, sizeof(sentence) , 0 );
+    INT32U uart_dev = dev_open( "uart1", 0, NULL );  
 
-	while(1)
+    if( DEV_OPEN_FAIL == uart_dev )
+    {
+        showstop();
+    }
+
+    dev_write( uart_dev, sentence, sizeof( sentence ), 0, NULL ); 
+
+
+    while(1)
 	{
-        /*
-        // Test FIFO function
-        while( forNum-- > 0 )
+        rc = dev_read( uart_dev, buf, 1, 0, NULL );
+        if( 1 == rc )
         {
-            fifoPut( &fifo, sentence, sizeof("in userApp2") );
+            dev_write( uart_dev, buf, 1, 0, NULL );
         }
-        forNum = 0;
-
-        uart_string( "Fifo Put Done." );
-        while( forNum-- > 0 )
-        {
-            fifoGet( &fifo, buf, sizeof("in userApp2") );
-        }
-        forNum = 0;
-        uart_string( "Fifo Get Done." );
-	    buf[ sizeof("in userApp2") ] = 0;	
-        uart_string( buf );
-        */
-        // Test uart rx driver 
-        //rc = uartRecv( 0, buf, 1, 0 );
-        
-        //hexstring( rc );
-        //if( rc > 0 ) uart_send(buf[0]);
-        while( 1 == uartRecv(0, buf, 1, 0) )
-        {
-            //uartTransmit( 0, buf, 1, 0 );
-        }
-
-        //PUT32( AUX_MU_IO_REG, '*' );
-
-        //PUT32( AUX_MU_IER_REG , 7 );
-        //uart_send('.');
-        //PUT32( AUX_MU_IER_REG, 3 );
-		//OSTimeDly(50);
-        //uartTransmit( 0, "Hello World!\n\r", sizeof("hello world!\n\r"), 0 );
+        OSTimeDly( 5 );
 	}
 }
 
