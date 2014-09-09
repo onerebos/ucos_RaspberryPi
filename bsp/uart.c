@@ -11,8 +11,8 @@ extern void dummy ( unsigned int );
 
 static OS_MEM * UartMemPartition;
 // Struct holding tx/rx fifo
-static Fifo_t uartRecvFifo;
-static Fifo_t uartTransFifo;
+Fifo_t uartRecvFifo;
+Fifo_t uartTransFifo;
 
 
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 export DEST="./.exvim.ucos"
-export TOOLS="/home/zswfox/.vim/tools/"
+export TOOLS="/home/pi/.vim/tools/"
 export EXCLUDE_FOLDERS=""
 export TMP="${DEST}/_ID"
 export TARGET="${DEST}/ID"

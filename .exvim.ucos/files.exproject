@@ -1,6 +1,9 @@
 " Press <F1> for help
 
 -[F]ucos_RaspberryPi {
+ |-[F]be {
+ | |-main.berc }
+ |
  |-[F]bsp {
  | |-cpu.c
  | |-crc.c
@@ -27,7 +30,6 @@
  | |-OS_Cpu_c.o
  | |-readme.md
  | |-showstop.o
- | |-startup.o
  | |-timer.o
  | |-uart.o
  | |-ucos_ii.o
@@ -87,8 +89,8 @@
  |
  |-grep
  |-kernel.img
- |-kernel.sym
  |-makefile
+ |-makefile_armgcc
  |-ncscope.out
  |-raspberrypi.ld
  |-README.md

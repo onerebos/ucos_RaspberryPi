@@ -1,5 +1,5 @@
 
-
+/*
 typedef struct 
 {
     INT8U* pFifo;
@@ -7,6 +7,8 @@ typedef struct
     INT32U tail;
     INT32U size;
 } Fifo_t;
+*/
+
 
 def Fifo_t
 {
@@ -15,4 +17,16 @@ def Fifo_t
     n32 dec     "tail"
     n32 dec     "size"
 }
+
+def UART
+{
+    at "uartRecvFifo" Fifo_t    "receive fifo"
+    at "uartTransFifo" Fifo_t    "transmit fifo"
+}
+
+def  main 
+{
+    at 0 UART   "uart"
+}
+    
 

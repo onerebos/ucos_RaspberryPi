@@ -17,6 +17,9 @@ badd ./h/ucos/OS_CPU.H:64
 badd ucos/os_core.c
 badd bsp/device.c:49
 badd /home/zswfox/projects/raspberryPi/ucos_RaspberryPi/usrApp/userApp.c
+badd /home/pi/projects/ucos_RaspberryPi/be/main.berc
+badd /home/pi/projects/ucos_RaspberryPi/bsp/uart.c
+badd ./h/ucos/uCOS_II.H
 badd 
 edit 
 call cursor(1,27)
