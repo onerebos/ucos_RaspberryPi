@@ -1,0 +1,18 @@
+
+
+typedef struct 
+{
+    INT8U* pFifo;
+    INT32U head;
+    INT32U tail;
+    INT32U size;
+} Fifo_t;
+
+def Fifo_t
+{
+    n32 hex     "pFifo"
+    n32 dec     "head"
+    n32 dec     "tail"
+    n32 dec     "size"
+}
+
