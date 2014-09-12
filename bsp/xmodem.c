@@ -39,7 +39,7 @@
 //#include <lib_serial.h>
 //#include <lib_crc.h>
 
-//#include <xmodem.h>
+#include <xmodem.h>
 #include "uart.h"
 
 typedef INT8S int8_t; 
@@ -85,6 +85,7 @@ static uint8_t check(int crc, const uint8_t *buf, int sz)
 
 static void flushinput(void)
 {
+    return;
 	while (_inbyte(((DLY_1S)*3)>>1) >= 0)
 		;
 }
@@ -172,12 +173,13 @@ int8_t xmodemReceive(uint8_t *dest, uint16_t dest_size)
 	}
 }
 
-int8_t xmodemTransmit(uint8_t *src, uint16_t src_size)
+int8_t xmodemTransmit(uint8_t *src, uint32_t src_size)
 {
 	uint8_t xbuff[1030]; /* 1024 for XModem 1k + 3 head chars + 2 crc + nul */
 	int16_t bufsz, crc = -1;
 	uint8_t packetno = 1;
-	int i, c, len = 0;
+	int i, len = 0;
+    int c;
 	uint8_t retry;
 
 	for(;;) {
