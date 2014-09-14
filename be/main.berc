@@ -1,3 +1,8 @@
+
+def DWORDS
+{
+    1024 n32 sym  "DWORD"  
+}
 include "uart.berc"
 include "ucos.berc" 
 
