@@ -1,0 +1,107 @@
+$define OS_TASK_CREATE_EXT_EN
+$define OS_Q_EN
+$define OS_MAX_QS
+$define OS_MBOX_EN
+$define OS_TASK_DEL_EN
+$define OS_VERSION
+$define OS_FLAG_EN
+$define OS_MAX_FLAGS
+
+/*
+*********************************************************************************************************
+*                                          TASK CONTROL BLOCK
+*********************************************************************************************************
+*/
+
+def OS_STK
+{
+    DWORDS                 "stack"
+    /* n32 hex             "OS_STK" */
+}
+
+def OS_FLAGS 
+{
+    n16 unsigned dec    "OS_FLAGS"
+}
+
+def OS_TCB 
+{
+    n32 ptr OS_STK      "OSTCBStkPtr"
+$ifdef OS_TASK_CREATE_EXT_EN
+    n32 hex             "OSTCBExtPtr"
+    n32 ptr OS_STK      "OSTCBStkBottom"
+    n32 unsigned dec    "OSTCBStkSize"
+    n16 hex             "OSTCBOpt"
+    n16 unsigned dec    "OSTCBId"
+$endif
+
+    n32 ptr OS_TCB      "OSTCBNext"
+    n32 ptr OS_TCB      "OSTCBPrev"
+
+$ifdef OS_Q_EN
+    $ifndef OS_MAX_QS OS_MBOX_EN OS_SEM_EN OS_MUTEX_EN
+    $else
+        n32 ptr OS_EVENT    "OSTCBEventPtr"
+    $endif
+$endif
+
+$ifdef OS_Q_EN
+    $ifndef OS_MAX_QS OS_MBOX_EN
+    $else 
+        n32 hex         "OSTCBMsg"
+    $endif
+$endif
+
+$ifdef OS_VERSION OS_FLAG_EN OS_MAX_FLAGS
+    $ifdef OS_TASK_DEL_EN
+        n32 ptr OS_FLAG_NODE    "OSTCBFlagNode"
+    $endif
+    
+    OS_FLAGS            "OSTCBFlagsRdy"
+$endif
+
+    n16 unsigned dec    "OSTCBDly"
+    n8 hex              "OSTCBStat"
+    n8 unsigned dec     "OSTCBPrio"
+
+    n8 unsigned dec     "OSTCBX"
+    n8 unsigned dec     "OSTCBY"
+    n8 bin              "OSTCBBitX"
+    n8 bin              "OSTCBBitY"
+
+$ifdef OS_TASK_DEL_EN
+    n8 unsigned dec     "OSTCBDelReq"
+$endif
+}
+
+set OS_LOWEST_PRIO 63
+set OS_EVENT_TBL_SIZE OS_LOWEST_PRIO/8+1
+
+def OS_EVENT
+{
+    n8 hex          "OSEventType"
+    n8 hex          "OSEventGrp"
+    n16 unsigned dec "OSEventCnt"
+    n32 hex         "OSEventPtr"
+    OS_EVENT_TBL_SIZE n8 hex    "OSEventTbl"
+}
+
+
+def OS_FLAG_NODE
+{
+    n32 hex     "OSFlagNodeNext"
+    n32 hex     "OSFlagNodePrev"
+    n32 hex     "OSFlagNodeTCB"
+    n32 hex     "OSFlagNodeFlagGrp"
+    OS_FLAGS    "OSFlagNodeFlags"
+    n8 hex      "OSFlagNodeWaitType"
+}
+
+
+
+
+def os_task 
+{
+    n32 ptr OS_TCB at "OSTCBList"
+}
+
