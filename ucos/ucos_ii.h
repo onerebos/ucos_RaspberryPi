@@ -538,7 +538,7 @@ void         *OSMboxPend(OS_EVENT *pevent, INT16U timeout, INT8U *err);
 #if OS_MBOX_POST_EN > 0
 INT8U         OSMboxPost(OS_EVENT *pevent, void *msg);
 #endif
-
+/
 #if OS_MBOX_POST_OPT_EN > 0
 INT8U         OSMboxPostOpt(OS_EVENT *pevent, void *msg, INT8U opt);
 #endif
